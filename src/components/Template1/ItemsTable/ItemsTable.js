@@ -1,7 +1,13 @@
 // @flow
 // libs
 import * as React from 'react'
-import { ArrayHelpers, Field, FieldArray, FormikProps } from 'formik'
+import {
+  ArrayHelpers,
+  FieldArray,
+  FormikProps,
+  useField,
+  useFormikContext,
+} from 'formik'
 
 // src
 import { EditableText } from '../../EditableText'
@@ -46,45 +52,36 @@ export function ItemsTable() {
                 remove,
               } = fieldArrayProps
 
-              return (
-                <React.Fragment>
-                  {items.map(({ quantity, unitPrice }, index) => (
-                    <tr key={index}>
-                      <td>{index + 1}</td>
-                      <td>
-                        <Field
-                          name={`items[${index}].description`}
-                          component={EditableText}
-                        />
-                      </td>
-                      <td>
-                        <Field
-                          name={`items[${index}].quantity`}
-                          type="number"
-                          component={EditableText}
-                        />
-                      </td>
-                      <td>
-                        <Field
-                          name={`items[${index}].unitPrice`}
-                          type="number"
-                          component={EditableText}
-                        />
-                      </td>
-                      <td>{quantity * unitPrice}</td>
-                      <td>
-                        <button
-                          className="dontPrint"
-                          type="button"
-                          onClick={() => remove(index)}
-                        >
-                          X
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </React.Fragment>
-              )
+              return items.map(({ quantity, unitPrice }, index) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>
+                    <EditableText name={`items[${index}].description`} />
+                  </td>
+                  <td>
+                    <EditableText
+                      name={`items[${index}].quantity`}
+                      type="number"
+                    />
+                  </td>
+                  <td>
+                    <EditableText
+                      name={`items[${index}].unitPrice`}
+                      type="number"
+                    />
+                  </td>
+                  <td>{quantity * unitPrice}</td>
+                  <td>
+                    <button
+                      className="dontPrint"
+                      type="button"
+                      onClick={() => remove(index)}
+                    >
+                      X
+                    </button>
+                  </td>
+                </tr>
+              ))
             }}
           />
         </tbody>

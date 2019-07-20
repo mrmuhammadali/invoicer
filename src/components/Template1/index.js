@@ -30,7 +30,7 @@ export function Template1({ values }: Props) {
       <div className={styles.currency}>
         <span>* All Prices are in </span>{' '}
         <span>
-          <Field name="currency" component={({ field }) => field.value} />
+          <Field name="currency">{({ field }) => field.value}</Field>
         </span>
       </div>
       <ItemsTable />

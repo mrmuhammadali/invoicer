@@ -1,7 +1,6 @@
 // @flow
 // libs
 import * as React from 'react'
-import { Field } from 'formik'
 
 // src
 import { calculateSubTotal, calculateTotal } from './utils'
@@ -30,7 +29,7 @@ export function Sums({ values }: Props) {
           <tr>
             <th>Tax (%): </th>
             <td>
-              <Field name="taxValue" type="number" component={EditableText} />
+              <EditableText name="taxValue" type="number" />
             </td>
           </tr>
           <tr className={styles.amountTotal}>
@@ -39,7 +38,7 @@ export function Sums({ values }: Props) {
           <tr>
             <th>Amount Paid: </th>
             <td>
-              <Field name="amountPaid" type="number" component={EditableText} />
+              <EditableText name="amountPaid" type="number" />
             </td>
           </tr>
           <tr className={styles.dueAmount}>

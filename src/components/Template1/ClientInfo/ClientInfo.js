@@ -1,6 +1,5 @@
 // libs
 import * as React from 'react'
-import { Field } from 'formik'
 
 // src
 import { EditableText } from '../../EditableText'
@@ -13,19 +12,19 @@ export function ClientInfo() {
     <section className={styles.root}>
       <div className={styles.title}>Client</div>
       <div className={styles.name}>
-        <Field name="clientName" fontSize={20} component={EditableText} />
+        <EditableText name="clientName" fontSize={20}  />
       </div>
       <div className={styles.field}>
-        <Field name="clientAddress" component={EditableText} />
+        <EditableText name="clientAddress"  />
       </div>
       <div className={styles.field}>
-        <Field name="clientCity" component={EditableText} />
+        <EditableText name="clientCity"  />
       </div>
       <div className={styles.field}>
-        Phone: <Field name="clientPhone" component={EditableText} />
+        Phone: <EditableText name="clientPhone"  />
       </div>
       <div className={styles.field}>
-        Email: <Field name="clientEmail" component={EditableText} />
+        Email: <EditableText name="clientEmail"  />
       </div>
     </section>
   )

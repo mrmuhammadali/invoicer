@@ -1,7 +1,7 @@
 // @flow
 // libs
 import * as React from 'react'
-import { FieldProps } from 'formik'
+import { FieldProps, useField, useFormikContext } from 'formik'
 
 // src
 import { useStyles } from './EditableText.styles'
@@ -14,15 +14,11 @@ type Props = FieldProps & {
 
 export function EditableText(props: Props) {
   const styles = useStyles(props)
+  const { className, fontSize = 15, type = 'text', name } = props
   const {
-    className,
-    field,
-    form: {
-      values: { isEditable = false },
-    },
-    fontSize = 15,
-    type = 'text',
-  } = props
+    values: { isEditable = false },
+  } = useFormikContext()
+  const [field] = useField(name)
 
   if (type === 'textarea') {
     return (

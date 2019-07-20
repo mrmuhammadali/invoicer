@@ -36,6 +36,8 @@ function createInvoice(params) {
 
 export function submitForm(dispatch) {
   return (values: Values, actions: FormikActions) => {
+    console.log(values)
+
     createInvoice(values)
   }
 }
