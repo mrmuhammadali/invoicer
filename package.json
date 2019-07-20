@@ -12,6 +12,7 @@
     "fusion-plugin-universal-events": "^2.0.3",
     "fusion-react": "^3.1.1",
     "fusion-tokens": "^2.0.2",
+    "puppeteer": "^1.18.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
