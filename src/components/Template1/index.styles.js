@@ -1,0 +1,43 @@
+// libs
+import { makeStyles } from '@material-ui/styles'
+
+export const useStyles = makeStyles({
+  '@import': [
+    'url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700&subset=cyrillic,cyrillic-ext,latin,greek-ext,greek,latin-ext,vietnamese)',
+    'url(https://fonts.googleapis.com/css?family=Sanchez&subset=latin,latin-ext)',
+  ],
+
+  '@global body': {
+    background: '#858585',
+    margin: 0,
+  },
+
+  root: {
+    fontFamily:
+      "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+    '-webkit-font-smoothing': 'antialiased',
+    '-moz-osx-font-smoothing': 'grayscale',
+    font: "normal 13px/1.4em 'Open Sans', Sans-serif",
+    width: '800px',
+    margin: '0 auto',
+    padding: '20px',
+    paddingBottom: 0,
+    background: '#fff',
+
+    '& section': {
+      paddingBottom: '15px',
+    },
+  },
+
+  row: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+
+  currency: {
+    textAlign: 'right',
+    color: '#858585',
+    fontStyle: 'italic',
+    fontSize: '12px',
+  },
+})
