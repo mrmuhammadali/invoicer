@@ -2,6 +2,8 @@
 // libs
 import * as React from 'react'
 import { FieldProps, useField, useFormikContext } from 'formik'
+import size from 'lodash/fp/size'
+import toString from 'lodash/fp/toString'
 
 // src
 import { useStyles } from './EditableText.styles'
@@ -39,7 +41,7 @@ export function EditableText(props: Props) {
       {...field}
       disabled={!isEditable}
       value={value}
-      style={{ width: value.toString().length * (fontSize / 2) + c + 'px' }}
+      style={{ width: size(toString(value)) * (fontSize / 2) + c + 'px' }}
       className={[styles.input, className].join(' ')}
       type={type}
     />

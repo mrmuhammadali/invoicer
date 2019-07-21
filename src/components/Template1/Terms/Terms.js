@@ -11,7 +11,11 @@ export function Terms() {
   return (
     <section className={styles.root}>
       <span>TERMS</span>
-      <EditableText className={styles.field} name="terms" type="textarea" />
+      <EditableText
+        className={styles.field}
+        name="invoice.terms"
+        type="textarea"
+      />
     </section>
   )
 }

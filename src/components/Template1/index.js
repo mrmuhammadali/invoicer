@@ -11,7 +11,7 @@ import { ItemsTable } from './ItemsTable'
 import { Sums } from './Sums'
 import { Terms } from './Terms'
 import { useStyles } from './index.styles'
-import { Values } from '../types'
+import { Values } from '../../types'
 
 type Props = {
   values: Values,
@@ -30,7 +30,7 @@ export function Template1({ values }: Props) {
       <div className={styles.currency}>
         <span>* All Prices are in </span>{' '}
         <span>
-          <Field name="currency">{({ field }) => field.value}</Field>
+          <Field name="invoice.currency">{({ field }) => field.value}</Field>
         </span>
       </div>
       <ItemsTable />

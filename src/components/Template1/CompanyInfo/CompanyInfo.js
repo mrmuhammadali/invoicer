@@ -13,16 +13,16 @@ export function CompanyInfo() {
       <div className={styles.companyInfo}>
         <EditableText
           className={styles.name}
-          name="companyName"
+          name="seller.name"
           fontSize={32}
         />
-        <EditableText className={styles.field} name="companyAddress" />
-        <EditableText className={styles.field} name="companyCity" />
+        <EditableText className={styles.field} name="seller.address" />
+        <EditableText className={styles.field} name="seller.city" />
         <span className={styles.field}>
-          Phone: <EditableText name="companyPhone" />
+          Phone: <EditableText name="seller.phone" />
         </span>
         <span className={styles.field}>
-          Email: <EditableText name="companyEmail" />
+          Email: <EditableText name="seller.email" />
         </span>
       </div>
 

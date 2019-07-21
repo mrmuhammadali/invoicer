@@ -1,0 +1,33 @@
+// @flow
+// libs
+import { Document, model, Schema } from 'mongoose'
+
+// src
+import { Invoice, InvoiceItem } from '../types'
+
+const invoiceItemSchema = new Schema<Schema & InvoiceItem>(
+  {
+    description: String,
+    quantity: Number,
+    unitPrice: Number,
+  },
+  { _id: false },
+)
+
+export const invoiceSchema = new Schema<Schema & Invoice>(
+  {
+    invoiceId: String,
+    issueDate: String,
+    dueDate: String,
+    currency: String,
+    taxValue: Number,
+    amountPaid: Number,
+    terms: String,
+    items: [invoiceItemSchema],
+    client: { type: Schema.Types.ObjectId, ref: 'Client' },
+    seller: { type: Schema.Types.ObjectId, ref: 'Seller' },
+  },
+  { versionKey: false },
+)
+
+export const InvoiceModel = model<Document & Invoice>('Invoice', invoiceSchema)

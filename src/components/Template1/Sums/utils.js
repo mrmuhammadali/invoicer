@@ -1,9 +1,9 @@
 // @flow
 // src
-import { Item } from '../../types'
+import { InvoiceItem } from '../../../types'
 
-export function calculateSubTotal(items: Item[]): number {
-  return items.reduce((sum: number, { quantity, unitPrice }: Item) => {
+export function calculateSubTotal(items: InvoiceItem[]): number {
+  return items.reduce((sum: number, { quantity, unitPrice }: InvoiceItem) => {
     return quantity * unitPrice + sum
   }, 0)
 }

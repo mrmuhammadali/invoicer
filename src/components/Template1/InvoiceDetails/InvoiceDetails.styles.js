@@ -10,7 +10,7 @@ export const useStyles = makeStyles({
     fontFamily: 'Sanchez, Serif',
   },
 
-  number: {
+  id: {
     fontSize: '16px',
     fontWeight: 'bold',
   },

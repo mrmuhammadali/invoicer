@@ -3,7 +3,7 @@ import { FormikActions } from 'formik'
 
 // src
 import { handleFetchResponse } from '../utils'
-import { Values } from '../components/types'
+import { Values } from '../types'
 
 export const FETCH_INVOICE_BY_ID = 'FETCH_INVOICE_BY_ID'
 export const FETCH_INVOICE_BY_ID_SUCCESS = 'FETCH_INVOICE_BY_ID_SUCCESS'
@@ -17,7 +17,7 @@ export function fetchInvoiceById(id, dispatch) {
     .then(payload => {
       dispatch({ type: FETCH_INVOICE_BY_ID_SUCCESS, payload })
 
-      return payload
+      return { ...payload, isEditable: false }
     })
     .catch(error => {
       dispatch({ type: FETCH_INVOICE_BY_ID_FAILURE, error })
@@ -31,17 +31,16 @@ function createInvoice(params) {
     method: 'POST',
     body: JSON.stringify(params),
     headers: { 'Content-Type': 'application/json' },
-  })
-    .then(res => res.blob())
-    .then(blob => {
-      const url = window.URL.createObjectURL(new Blob([blob]))
-      const link = document.createElement('a')
-      link.href = url
-      link.setAttribute('download', `sample.pdf`)
-      document.body.appendChild(link)
-      link.click()
-      link.parentNode.removeChild(link)
-    })
+  }).then(res => res.blob())
+  // .then(blob => {
+  //   const url = window.URL.createObjectURL(new Blob([blob]))
+  //   const link = document.createElement('a')
+  //   link.href = url
+  //   link.setAttribute('download', `sample.pdf`)
+  //   document.body.appendChild(link)
+  //   link.click()
+  //   link.parentNode.removeChild(link)
+  // })
 }
 
 export function submitForm(dispatch) {

@@ -11,17 +11,19 @@ export function InvoiceDetails() {
 
   return (
     <section className={styles.root}>
-      <div className={styles.number}>
-        <Field name="invoiceNumber">{({ field }) => `# ${field.value}`}</Field>
+      <div className={styles.id}>
+        <Field name="invoice.invoiceId">
+          {({ field }) => `# ${field.value}`}
+        </Field>
       </div>
 
       <div className={styles.title}>Invoice</div>
 
       <div>
-        <b>Issue Date:</b> <EditableText name="issueDate" type="date" />
+        <b>Issue Date:</b> <EditableText name="invoice.issueDate" type="date" />
       </div>
       <div>
-        <b>Due Date:</b> <EditableText name="dueDate" type="date" />
+        <b>Due Date:</b> <EditableText name="invoice.dueDate" type="date" />
       </div>
     </section>
   )

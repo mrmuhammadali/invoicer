@@ -1,6 +1,7 @@
 // @flow
 // libs
 import App from 'fusion-react'
+import mongoose from 'mongoose'
 import { FetchToken } from 'fusion-tokens'
 import HTTPRouter, { HTTPHandlersToken } from 'fusion-plugin-http-router'
 import Router from 'fusion-plugin-react-router'
@@ -14,6 +15,13 @@ export default function() {
   app.register(Router)
 
   if (__NODE__) {
+    mongoose
+      .connect('mongodb://localhost:27017/invoicer', {
+        useNewUrlParser: true,
+      })
+      .then(res => {
+        console.log('Connected!!!')
+      })
     app.register(HTTPRouter)
     app.register(HTTPHandlersToken, handlers)
   }

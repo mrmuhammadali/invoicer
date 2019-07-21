@@ -6,7 +6,7 @@ import * as React from 'react'
 import { calculateSubTotal, calculateTotal } from './utils'
 import { EditableText } from '../../EditableText'
 import { useStyles } from './Sums.styles'
-import { Values } from '../../types'
+import { Values } from '../../../types'
 
 type Props = {
   values: Values,
@@ -14,7 +14,7 @@ type Props = {
 
 export function Sums({ values }: Props) {
   const styles = useStyles({})
-  const { amountPaid, items, taxValue } = values
+  const { amountPaid, items, taxValue } = values.invoice
   const subTotalAmount = calculateSubTotal(items)
   const totalAmount = calculateTotal(subTotalAmount, taxValue)
 
@@ -29,7 +29,7 @@ export function Sums({ values }: Props) {
           <tr>
             <th>Tax (%): </th>
             <td>
-              <EditableText name="taxValue" type="number" />
+              <EditableText name="invoice.taxValue" type="number" />
             </td>
           </tr>
           <tr className={styles.amountTotal}>
@@ -38,7 +38,7 @@ export function Sums({ values }: Props) {
           <tr>
             <th>Amount Paid: </th>
             <td>
-              <EditableText name="amountPaid" type="number" />
+              <EditableText name="invoice.amountPaid" type="number" />
             </td>
           </tr>
           <tr className={styles.dueAmount}>

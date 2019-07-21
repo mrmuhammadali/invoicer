@@ -5,7 +5,7 @@ import { FormikProps } from 'formik'
 
 // src
 import { Template1 } from '../../components/Template1'
-import { Values } from '../../components/types'
+import { Values } from '../../types'
 
 export function FormContainer(props: FormikProps<Values>) {
   const { handleSubmit, values } = props
