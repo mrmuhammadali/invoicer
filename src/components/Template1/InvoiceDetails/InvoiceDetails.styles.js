@@ -6,7 +6,7 @@ export const useStyles = makeStyles({
     background: '#415472',
     color: 'white',
     fontSize: '40px',
-    padding: '5px',
+    padding: '20px 10px',
     fontFamily: 'Sanchez, Serif',
   },
 
