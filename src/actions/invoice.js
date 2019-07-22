@@ -26,27 +26,47 @@ export function fetchInvoiceById(id, dispatch) {
     })
 }
 
+function createInvoice(params) {
+  return fetch('/api/invoice', {
+    method: 'POST',
+    body: JSON.stringify(params),
+    headers: { 'Content-Type': 'application/json' },
+  }).then(handleFetchResponse)
+}
+
 function downloadInvoice(params) {
   return fetch('/api/invoice/download', {
     method: 'POST',
     body: JSON.stringify(params),
     headers: { 'Content-Type': 'application/json' },
-  }).then(res => res.blob())
-  // .then(blob => {
-  //   const url = window.URL.createObjectURL(new Blob([blob]))
-  //   const link = document.createElement('a')
-  //   link.href = url
-  //   link.setAttribute('download', `sample.pdf`)
-  //   document.body.appendChild(link)
-  //   link.click()
-  //   link.parentNode.removeChild(link)
-  // })
+  })
+    .then(res => res.blob())
+    .then(blob => {
+      const url = window.URL.createObjectURL(new Blob([blob]))
+      const link = document.createElement('a')
+      link.href = url
+      link.setAttribute('download', `sample.pdf`)
+      document.body.appendChild(link)
+      link.click()
+      link.parentNode.removeChild(link)
+    })
+}
+
+function shareInvoice(params) {
+  return createInvoice(params).then(({ invoiceId }) => {
+    console.log(invoiceId)
+  })
 }
 
 export function submitForm(dispatch) {
-  return (values: Values, actions: FormikActions) => {
-    console.log(values)
-
-    downloadInvoice(values)
+  return ({ action, ...values }: Values, actions: FormikActions) => {
+    switch (action) {
+      case 'download': {
+        return downloadInvoice(values)
+      }
+      case 'share': {
+        return shareInvoice(values)
+      }
+    }
   }
 }

@@ -30,4 +30,6 @@ export type Values = {
   client: Person,
   seller: Person,
   invoice: Invoice,
+  isEditable?: boolean,
+  action?: string,
 }

@@ -16,7 +16,6 @@ export function ViewInvoice(props: RouteComponentProps) {
   useEffect(() => {
     fetchInvoiceById(id, dispatch)
   }, [id])
-  // console.log(payload)
 
   if (isLoading) {
     return 'Loading...'
