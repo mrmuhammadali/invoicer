@@ -18,7 +18,7 @@ export type Invoice = {
   items: InvoiceItem[],
 }
 
-export type Client = {
+export type Person = {
   name: string,
   city: string,
   address: string,
@@ -26,15 +26,8 @@ export type Client = {
   email: string,
 }
 
-export type Seller = {
-  name: string,
-  city: string,
-  address: string,
-  phone: string,
-  email: string,
-}
-
-export type Values = Seller & {
-  client: Client,
+export type Values = {
+  client: Person,
+  seller: Person,
   invoice: Invoice,
 }

@@ -1,26 +1,30 @@
 // src
+import { createOrUpdatePerson } from './person'
 import { InvoiceModel } from '../models/Invoice'
-import { ClientModel } from '../models/Client'
-import { SellerModel } from '../models/Seller'
+import { PersonModel } from '../models/Person'
+import { Values } from '../types'
 
-export async function createInvoice(params) {
-  const client = new ClientModel(params.client)
-  const seller = new SellerModel(params.seller)
-  const invoice = new InvoiceModel({ ...params.invoice, seller, client })
+export async function createInvoice(values: Values) {
+  const foundInvoice = await getInvoiceById(values.invoice.invoiceId)
 
-  const result = await invoice
-    .save()
-    .then(() => client.save())
-    .then(() => seller.save())
+  if (foundInvoice) {
+    return Promise.resolve(foundInvoice)
+  }
 
-  console.log(result)
+  const clientPromise = createOrUpdatePerson(values.client)
+  const sellerPromise = createOrUpdatePerson(values.seller)
+
+  return Promise.all([clientPromise, sellerPromise])
+    .then(
+      ([client, seller]) =>
+        new InvoiceModel({ ...values.invoice, client, seller }),
+    )
+    .then(invoice => invoice.save())
 }
 
 export async function getInvoiceById(invoiceId) {
-  const invoice = await InvoiceModel.findOne({ invoiceId })
-    .populate('client')
-    .populate('seller')
+  return InvoiceModel.findOne({ invoiceId }, { _id: 0 })
+    .populate({ path: 'client', select: { _id: 0 } })
+    .populate({ path: 'seller', select: { _id: 0 } })
     .lean()
-
-  return invoice
 }

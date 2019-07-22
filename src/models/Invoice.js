@@ -14,7 +14,7 @@ const invoiceItemSchema = new Schema<Schema & InvoiceItem>(
   { _id: false },
 )
 
-export const invoiceSchema = new Schema<Schema & Invoice>(
+const invoiceSchema = new Schema<Schema & Invoice>(
   {
     invoiceId: String,
     issueDate: String,
@@ -24,8 +24,8 @@ export const invoiceSchema = new Schema<Schema & Invoice>(
     amountPaid: Number,
     terms: String,
     items: [invoiceItemSchema],
-    client: { type: Schema.Types.ObjectId, ref: 'Client' },
-    seller: { type: Schema.Types.ObjectId, ref: 'Seller' },
+    client: { type: Schema.Types.ObjectId, ref: 'Person' },
+    seller: { type: Schema.Types.ObjectId, ref: 'Person' },
   },
   { versionKey: false },
 )

@@ -26,8 +26,8 @@ export function fetchInvoiceById(id, dispatch) {
     })
 }
 
-function createInvoice(params) {
-  return fetch('/api/invoice', {
+function downloadInvoice(params) {
+  return fetch('/api/invoice/download', {
     method: 'POST',
     body: JSON.stringify(params),
     headers: { 'Content-Type': 'application/json' },
@@ -47,6 +47,6 @@ export function submitForm(dispatch) {
   return (values: Values, actions: FormikActions) => {
     console.log(values)
 
-    createInvoice(values)
+    downloadInvoice(values)
   }
 }

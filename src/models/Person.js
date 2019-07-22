@@ -3,11 +3,10 @@
 import { Document, model, Schema } from 'mongoose'
 
 // src
-import { clientSchema } from './Client'
 import { invoiceSchema } from './Invoice'
-import { Seller } from '../types'
+import { Person } from '../types'
 
-export const sellerSchema = new Schema<Schema & Seller>(
+const personSchema = new Schema<Schema & Person>(
   {
     name: String,
     address: String,
@@ -18,4 +17,4 @@ export const sellerSchema = new Schema<Schema & Seller>(
   { versionKey: false },
 )
 
-export const SellerModel = model<Document & Seller>('Seller', sellerSchema)
+export const PersonModel = model<Document & Person>('Person', personSchema)
