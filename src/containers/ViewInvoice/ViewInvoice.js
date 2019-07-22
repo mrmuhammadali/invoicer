@@ -26,7 +26,7 @@ export function ViewInvoice(props: RouteComponentProps) {
       <Formik
         initialValues={payload}
         component={FormContainer}
-        onSubmit={submitForm()}
+        onSubmit={() => submitForm(payload)}
       />
     )
   }

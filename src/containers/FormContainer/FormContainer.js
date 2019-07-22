@@ -11,7 +11,7 @@ import { Values } from '../../types'
 export function FormContainer(props: FormikProps<Values>) {
   const { handleSubmit, setFieldValue, values } = props
 
-  function onClick(action) {
+  function onClick(action: string) {
     setFieldValue('action', action, false)
     handleSubmit()
   }

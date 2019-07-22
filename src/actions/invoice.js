@@ -15,29 +15,31 @@ export function fetchInvoiceById(id, dispatch) {
   return fetch(`/api/invoice/${id}`)
     .then(handleFetchResponse)
     .then(payload => {
+      if (payload.status === 'failure') {
+        return Promise.reject(payload.data)
+      }
+
       dispatch({ type: FETCH_INVOICE_BY_ID_SUCCESS, payload })
 
       return { ...payload, isEditable: false }
     })
     .catch(error => {
       dispatch({ type: FETCH_INVOICE_BY_ID_FAILURE, error })
-
-      throw error
     })
 }
 
-function createInvoice(params) {
+function createInvoice(values: Values) {
   return fetch('/api/invoice', {
     method: 'POST',
-    body: JSON.stringify(params),
+    body: JSON.stringify(values),
     headers: { 'Content-Type': 'application/json' },
   }).then(handleFetchResponse)
 }
 
-function downloadInvoice(params) {
+function downloadInvoice(values: Values) {
   return fetch('/api/invoice/download', {
     method: 'POST',
-    body: JSON.stringify(params),
+    body: JSON.stringify(values),
     headers: { 'Content-Type': 'application/json' },
   })
     .then(res => res.blob())
@@ -45,28 +47,26 @@ function downloadInvoice(params) {
       const url = window.URL.createObjectURL(new Blob([blob]))
       const link = document.createElement('a')
       link.href = url
-      link.setAttribute('download', `sample.pdf`)
+      link.setAttribute('download', `Invoice_${values.invoice.invoiceId}.pdf`)
       document.body.appendChild(link)
       link.click()
       link.parentNode.removeChild(link)
     })
 }
 
-function shareInvoice(params) {
-  return createInvoice(params).then(({ invoiceId }) => {
+function shareInvoice(values: Values) {
+  return createInvoice(values).then(({ invoiceId }) => {
     console.log(invoiceId)
   })
 }
 
-export function submitForm(dispatch) {
-  return ({ action, ...values }: Values, actions: FormikActions) => {
-    switch (action) {
-      case 'download': {
-        return downloadInvoice(values)
-      }
-      case 'share': {
-        return shareInvoice(values)
-      }
+export function submitForm({ action, ...values }: Values) {
+  switch (action) {
+    case 'download': {
+      return downloadInvoice(values)
+    }
+    case 'share': {
+      return shareInvoice(values)
     }
   }
 }

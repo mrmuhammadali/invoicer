@@ -1,7 +1,7 @@
 // src
-import { INITIAL_VALUES } from '../containers/CreateInvoice/constants'
-import { getPdf } from '../utils/puppeteer'
 import { createInvoice, getInvoiceById } from './invoice'
+import { getPdf } from '../utils/puppeteer'
+import { ResponseError } from 'fusion-plugin-http-router'
 import { Values } from '../types'
 
 export const handlers = {
@@ -17,9 +17,14 @@ export const handlers = {
   },
   '/api/invoice/:id': {
     GET: async ({ id }) => {
-      const { client, seller, ...invoice } = await getInvoiceById(id)
+      return getInvoiceById(id).then(res => {
+        if (!res) {
+          return Promise.reject(new ResponseError("Invoice doesn't exist."))
+        }
 
-      return { client, seller, invoice }
+        const { client, seller, ...invoice } = res
+        return { client, seller, invoice }
+      })
     },
   },
 }
