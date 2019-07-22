@@ -2,7 +2,7 @@
 import { FormikActions } from 'formik'
 
 // src
-import { handleFetchResponse } from '../utils'
+import { copyTextToClipboard, handleFetchResponse } from '../utils'
 import { Values } from '../types'
 
 export const FETCH_INVOICE_BY_ID = 'FETCH_INVOICE_BY_ID'
@@ -56,7 +56,9 @@ function downloadInvoice(values: Values) {
 
 function shareInvoice(values: Values) {
   return createInvoice(values).then(({ invoiceId }) => {
-    console.log(invoiceId)
+    if (invoiceId) {
+      copyTextToClipboard(invoiceId)
+    }
   })
 }
 
@@ -64,6 +66,9 @@ export function submitForm({ action, ...values }: Values) {
   switch (action) {
     case 'download': {
       return downloadInvoice(values)
+    }
+    case 'save': {
+      return createInvoice(values)
     }
     case 'share': {
       return shareInvoice(values)
