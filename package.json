@@ -23,9 +23,10 @@
     "dev": "fusion dev",
     "lint": "eslint .",
     "test": "fusion test",
-    "build-dev": "fusion build",
-    "build": "fusion build --production",
-    "start": "fusion start"
+    "build": "fusion build",
+    "build-production": "fusion build --production",
+    "start": "fusion start --port=$PORT",
+    "heroku-postbuild": "fusion build --production && sed -i \"s;$(pwd);/app;g\" .fusion/dist/production/server/server-main.js"
   },
   "devDependencies": {
     "enzyme": "^3.9.0",
