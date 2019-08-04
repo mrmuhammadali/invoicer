@@ -1,3 +1,4 @@
+// @flow
 // libs
 import { FormikActions } from 'formik'
 
@@ -9,7 +10,7 @@ export const FETCH_INVOICE_BY_ID = 'FETCH_INVOICE_BY_ID'
 export const FETCH_INVOICE_BY_ID_SUCCESS = 'FETCH_INVOICE_BY_ID_SUCCESS'
 export const FETCH_INVOICE_BY_ID_FAILURE = 'FETCH_INVOICE_BY_ID_FAILURE'
 
-export function fetchInvoiceById(id, dispatch) {
+export function fetchInvoiceById(id: string, dispatch: Function) {
   dispatch({ type: FETCH_INVOICE_BY_ID })
 
   return fetch(`/api/invoice/${id}`)
