@@ -23,8 +23,8 @@
     "dev": "fusion dev",
     "lint": "eslint .",
     "test": "fusion test",
-    "build": "fusion build",
-    "build-production": "fusion build --production",
+    "build-dev": "fusion build",
+    "build": "fusion build --production",
     "start": "fusion start"
   },
   "devDependencies": {

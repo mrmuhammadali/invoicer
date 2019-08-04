@@ -1,4 +1,5 @@
 // src
+import { BASE_URL } from '../constants';
 import { createInvoice, getInvoiceById } from './invoice'
 import { getPdf } from '../utils/puppeteer'
 import { ResponseError } from 'fusion-plugin-http-router'
@@ -11,7 +12,7 @@ export const handlers = {
   '/api/invoice/download': {
     POST: (values: Values) => {
       return createInvoice(values).then(res =>
-        getPdf(`http://localhost:3000/${values.invoice.invoiceId}`),
+        getPdf(`${BASE_URL}/${values.invoice.invoiceId}`),
       )
     },
   },

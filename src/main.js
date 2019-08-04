@@ -9,6 +9,7 @@ import Router from 'fusion-plugin-react-router'
 // src
 import { App as ClientApp } from './App'
 import { handlers } from './handlers'
+import { MONGODB_URI } from './constants';
 
 export default function() {
   const app = new App(ClientApp)
@@ -16,7 +17,7 @@ export default function() {
 
   if (__NODE__) {
     mongoose
-      .connect('mongodb://localhost:27017/invoicer', {
+      .connect(MONGODB_URI, {
         useNewUrlParser: true,
       })
       .then(res => {
