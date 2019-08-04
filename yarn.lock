@@ -3561,6 +3561,12 @@ fusion-plugin-react-router@^2.0.5:
     prop-types "^15.7.2"
     react-router-dom "^4.3.1"
 
+fusion-plugin-universal-events@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/fusion-plugin-universal-events/-/fusion-plugin-universal-events-2.0.4.tgz#6a115082c9286b5d077abac1e35fd8175556ec4c"
+  dependencies:
+    koa-bodyparser "^4.2.1"
+
 fusion-react@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/fusion-react/-/fusion-react-3.1.2.tgz#19f3d67bd3d55c9c921ef66e6b6fff9bf6042f59"
@@ -4986,7 +4992,7 @@ kleur@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.2.tgz#83c7ec858a41098b613d5998a7b653962b504f68"
 
-koa-bodyparser@4.2.1:
+koa-bodyparser@4.2.1, koa-bodyparser@^4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/koa-bodyparser/-/koa-bodyparser-4.2.1.tgz#4d7dacb5e6db1106649b595d9e5ccb158b6f3b29"
   dependencies:
