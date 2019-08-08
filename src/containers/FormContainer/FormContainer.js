@@ -12,8 +12,8 @@ export function FormContainer(props: FormikProps<Values>) {
   const { handleSubmit, setFieldValue, values } = props
 
   function onClick(action: string) {
-    setFieldValue('action', action, false)
-    handleSubmit()
+    Promise.resolve(setFieldValue('action', action, false))
+      .then(() => handleSubmit())
   }
 
   return (

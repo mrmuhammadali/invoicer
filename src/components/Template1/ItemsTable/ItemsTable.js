@@ -49,6 +49,7 @@ export function ItemsTable() {
                 form: {
                   values: {
                     invoice: { items = [] },
+                    isEditable
                   },
                 },
                 remove,
@@ -77,13 +78,13 @@ export function ItemsTable() {
                     </td>
                     <td>{quantity * unitPrice}</td>
                     <td>
-                      <button
+                      {isEditable && <button
                         className="dontPrint"
                         type="button"
                         onClick={() => remove(index)}
                       >
                         X
-                      </button>
+                      </button>}
                     </td>
                   </tr>
                 )
@@ -94,15 +95,15 @@ export function ItemsTable() {
       </table>
       <FieldArray
         name="invoice.items"
-        render={({ push }: FieldArrayProps) => (
-          <button
-            className="dontPrint"
-            type="button"
-            onClick={() => push(ITEM)}
-          >
-            Add a row
-          </button>
-        )}
+        render={({ push, form: { values: { isEditable } } }: FieldArrayProps) => isEditable ? (
+            <button
+              className="dontPrint"
+              type="button"
+              onClick={() => push(ITEM)}
+            >
+              Add a row
+            </button>
+        ) : null}
       />
     </section>
   )
