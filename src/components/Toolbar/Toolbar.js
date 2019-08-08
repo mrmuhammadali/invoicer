@@ -17,7 +17,7 @@ export function ToolbarWithRouter(props: Props) {
   } = props
 
   return (
-    <div className={styles.root}>
+    <div className={['dontPrint', styles.root].join(' ')}>
       <button type="submit" onClick={() => onClick('download')}>
         Download as PDF
       </button>

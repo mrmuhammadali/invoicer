@@ -10,6 +10,13 @@ export const useStyles = makeStyles({
   '@global body': {
     background: '#858585',
     margin: 0,
+    '-webkit-print-color-adjust': 'exact'
+  },
+
+  '@global @media print': {
+    '.dontPrint': {
+      display: 'none'
+    }
   },
 
   root: {
