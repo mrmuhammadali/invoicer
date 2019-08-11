@@ -1,28 +1,23 @@
 // @flow
 // libs
-import * as React from 'react'
-import {
-  ArrayHelpers,
-  FieldArray,
-  FormikProps,
-  useField,
-  useFormikContext,
-} from 'formik'
+import * as React from "react"
+import { ArrayHelpers, FieldArray, FormikProps } from "formik"
+import { IconButton, Icon } from "@material-ui/core"
 
 // src
-import { EditableText } from '../../EditableText'
-import { Item, Values } from '../../../types'
-import { useStyles } from './ItemsTable.styles'
+import { EditableText } from "../../EditableText"
+import { Item, Values } from "../../../types"
+import { useStyles } from "./ItemsTable.styles"
 
 const ITEM: Item = {
-  description: 'Enter description here...',
+  description: "Enter description here...",
   quantity: 0,
-  unitPrice: 0,
+  unitPrice: 0
 }
 
 type FieldArrayProps = ArrayHelpers & {
   form: FormikProps<Values>,
-  name: string,
+  name: string
 }
 
 export function ItemsTable() {
@@ -50,9 +45,9 @@ export function ItemsTable() {
                   values: {
                     invoice: { items = [] },
                     isEditable
-                  },
+                  }
                 },
-                remove,
+                remove
               } = fieldArrayProps
 
               return items.map(({ quantity, unitPrice }, index) => {
@@ -78,13 +73,14 @@ export function ItemsTable() {
                     </td>
                     <td>{quantity * unitPrice}</td>
                     <td>
-                      {isEditable && <button
-                        className="dontPrint"
-                        type="button"
-                        onClick={() => remove(index)}
-                      >
-                        X
-                      </button>}
+                      {isEditable && (
+                        <IconButton
+                          className="dontPrint"
+                          onClick={() => remove(index)}
+                        >
+                          <Icon className={styles.deleteIcon}>delete</Icon>
+                        </IconButton>
+                      )}
                     </td>
                   </tr>
                 )
@@ -95,7 +91,13 @@ export function ItemsTable() {
       </table>
       <FieldArray
         name="invoice.items"
-        render={({ push, form: { values: { isEditable } } }: FieldArrayProps) => isEditable ? (
+        render={({
+          push,
+          form: {
+            values: { isEditable }
+          }
+        }: FieldArrayProps) =>
+          isEditable ? (
             <button
               className="dontPrint"
               type="button"
@@ -103,7 +105,8 @@ export function ItemsTable() {
             >
               Add a row
             </button>
-        ) : null}
+          ) : null
+        }
       />
     </section>
   )

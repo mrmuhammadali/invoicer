@@ -1,9 +1,9 @@
 // @flow
 // libs
 import App from 'fusion-react'
-import mongoose from 'mongoose'
-import { FetchToken } from 'fusion-tokens'
+import HelmetPlugin from 'fusion-plugin-react-helmet-async'
 import HTTPRouter, { HTTPHandlersToken } from 'fusion-plugin-http-router'
+import mongoose from 'mongoose'
 import Router from 'fusion-plugin-react-router'
 
 // src
@@ -14,15 +14,16 @@ import { MONGODB_URI } from './constants';
 export default function() {
   const app = new App(ClientApp)
   app.register(Router)
-
+  app.register(HelmetPlugin)
+  
   if (__NODE__) {
     mongoose
-      .connect(MONGODB_URI, {
-        useNewUrlParser: true,
-      })
-      .then(res => {
-        console.log('Connected!!!')
-      })
+    .connect(MONGODB_URI, {
+      useNewUrlParser: true,
+    })
+    .then(res => {
+      console.log('Connected!!!')
+    })
     app.register(HTTPRouter)
     app.register(HTTPHandlersToken, handlers)
   }

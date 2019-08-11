@@ -54,4 +54,12 @@ export const useStyles = makeStyles({
       },
     },
   },
+  deleteIcon: {
+    fontSize: 16, 
+    color: '#e00707'
+  },
+  addRow: {
+    color: '#0078c3',
+    cursor: 'pointer'
+  }
 })
