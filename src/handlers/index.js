@@ -2,7 +2,6 @@
 import { BASE_URL } from '../constants';
 import { createInvoice, getInvoiceById } from './invoice'
 import { getPdf } from '../utils/puppeteer'
-import { ResponseError } from 'fusion-plugin-http-router'
 import { Values } from '../types'
 
 export const handlers = {
@@ -20,7 +19,7 @@ export const handlers = {
     GET: async ({ id }) => {
       return getInvoiceById(id).then(res => {
         if (!res) {
-          return Promise.reject(new ResponseError("Invoice doesn't exist."))
+          return Promise.reject(new Error("Invoice doesn't exist."))
         }
 
         const { client, seller, ...invoice } = res

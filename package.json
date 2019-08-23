@@ -9,7 +9,7 @@
     "formik": "next",
     "fusion-cli": "^2.2.1",
     "fusion-core": "^2.0.3",
-    "fusion-plugin-http-router": "^0.1.1",
+    "fusion-plugin-http-router": "^0.2.4",
     "fusion-plugin-react-router": "^2.0.5",
     "fusion-plugin-universal-events": "^2.0.4",
     "fusion-react": "^3.1.2",
@@ -29,10 +29,9 @@
     "heroku-postbuild": "fusion build --production && sed -i \"s;$(pwd);/app;g\" .fusion/dist/production/server/server-main.js"
   },
   "devDependencies": {
-    "enzyme": "^3.9.0",
     "eslint": "^6.1.0",
     "eslint-config-fusion": "^6.0.2",
-    "eslint-plugin-react-hooks": "^1.6.1"
+    "eslint-plugin-react-hooks": "^1.7.0"
   },
   "files": [
     "dist",
