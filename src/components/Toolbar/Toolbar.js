@@ -1,7 +1,7 @@
 // libs
 import * as React from 'react'
 import { RouteComponentProps, withRouter } from 'react-router'
-import { AppBar, Toolbar as M_Toolbar, IconButton, Icon } from '@material-ui/core';
+import { AppBar, Toolbar as M_Toolbar, IconButton, Icon, Tooltip } from '@material-ui/core';
 
 // src
 import { useStyles } from './Toolbar.styles'
@@ -10,11 +10,14 @@ type Props = RouteComponentProps & {
   onClick: (action: string) => void,
 }
 
-const ToolbarIcon = ({ iconType, OnIconClick }) => {
+const ToolbarIcon = ({ iconType, OnIconClick, title }) => {
+  const styles = useStyles({})
   return (
-    <IconButton onClick={OnIconClick}>
-      <Icon>{iconType}</Icon>
-    </IconButton>
+    <Tooltip title={title ? title : iconType} placement="bottom">
+      <IconButton onClick={OnIconClick} className={styles.materialIcons}>
+        <Icon>{iconType}</Icon>
+      </IconButton>
+    </Tooltip>
   )
 }
 
@@ -27,9 +30,9 @@ export function ToolbarWithRouter(props: Props) {
   
 
   return (
-    <AppBar className="dontPrint" position="static">
+    <AppBar className={styles.appBar} position="static">
       <M_Toolbar className={styles.toolbar} >
-        <ToolbarIcon iconType='cloud_download' OnIconClick={() => onClick('download')} />
+        <ToolbarIcon iconType='cloud_download' OnIconClick={() => onClick('download')} title='download' />
 
         {
           path === '/' && (

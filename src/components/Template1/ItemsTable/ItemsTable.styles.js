@@ -8,51 +8,35 @@ export const useStyles = makeStyles({
       margin: '5px 0',
     },
 
-    '& th': {
-      fontFamily: 'Sanchez, Serif',
-      fontSize: '12px',
-      textTransform: 'uppercase',
-      padding: '5px 3px',
-      textAlign: 'center',
-      background: '#b0b4b3',
-      color: 'white',
-
-      '&:first-child': {
-        width: '30px',
-        textAlign: 'left',
+    '& thead': {
+      backgroundColor: '#e3e3e3',
+      '& th': {
+        fontSize: '12px',
+        textTransform: 'uppercase',
+        padding: '6px 4px',
+        color: '#858585',
+        fontWeight: '700'
       },
+      '& tr': {
+        display: 'grid',
+        gridTemplateColumns: '32px 252px 70px 88px 289px 70px',
+      }
+    },
 
-      '&:last-child': {
-        width: '30px',
-        textAlign: 'left',
+    '& tbody': {
+      '& th': {
+        padding: '11px 4px',
       },
-
-      '&:nth-child(2)': {
-        width: '40%',
-        textAlign: 'left',
-      },
+      '& tr': {
+        display: 'grid',
+        alignItems: 'end',
+        gridTemplateColumns: '32px 252px 70px 88px 289px 70px'
+      }
     },
 
     '& td': {
-      padding: '10px 3px',
-      textAlign: 'center',
-      borderBottom: '1px solid #ddd',
-
-      '&:first-child': {
-        width: '30px',
-        textAlign: 'left',
-      },
-
-      '&:last-child': {
-        width: '30px',
-        textAlign: 'left',
-      },
-
-      '&:nth-child(2)': {
-        width: '40%',
-        textAlign: 'left',
-      },
-    },
+      padding: '10px 4px'
+    }
   },
   deleteIcon: {
     fontSize: 16, 
@@ -61,5 +45,8 @@ export const useStyles = makeStyles({
   addRow: {
     color: '#0078c3',
     cursor: 'pointer'
+  },
+  iconButton: {
+    padding: '8px'
   }
 })

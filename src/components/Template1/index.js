@@ -12,12 +12,13 @@ import { Sums } from './Sums'
 import { Terms } from './Terms'
 import { useStyles } from './index.styles'
 import { Values } from '../../types'
+import WithSnackbar from '../WithSnackbar/WithSnackbar';
 
 type Props = {
   values: Values,
 }
 
-export function Template1({ values }: Props) {
+const Template1 = ({ values }: Props) => {
   const styles = useStyles({})
 
   return (
@@ -39,3 +40,7 @@ export function Template1({ values }: Props) {
     </div>
   )
 }
+
+const WrappedComponent = WithSnackbar(Template1);
+
+export default WrappedComponent;

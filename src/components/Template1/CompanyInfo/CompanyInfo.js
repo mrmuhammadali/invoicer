@@ -15,15 +15,21 @@ export function CompanyInfo() {
           className={styles.name}
           name="seller.name"
           fontSize={32}
+          placeholder='Name'
+          InputStyles={{width: '300px'}}
         />
-        <EditableText className={styles.field} name="seller.address" />
-        <EditableText className={styles.field} name="seller.city" />
-        <span className={styles.field}>
-          Phone: <EditableText name="seller.phone" />
-        </span>
-        <span className={styles.field}>
-          Email: <EditableText name="seller.email" />
-        </span>
+        <div className={styles.field}>
+          <EditableText name="seller.city" InputStyles={{width: '200px'}} placeholder='City' />
+        </div>
+        <div className={styles.field}>
+          <EditableText name="seller.phone" InputStyles={{width: '120px'}} placeholder='Phone' />
+        </div>
+        <div className={styles.field}>
+          <EditableText name="seller.email" InputStyles={{width: '185px'}} placeholder='Email' />
+        </div>
+        <div className={styles.field}>
+          <EditableText name="seller.address" InputStyles={{width: '200px'}} placeholder='Address' type="textarea" />
+        </div>
       </div>
 
       <div className={styles.companyLogo}>

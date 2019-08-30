@@ -20,10 +20,10 @@ export function InvoiceDetails() {
       <div className={styles.title}>Invoice</div>
 
       <div>
-        <b>Issue Date:</b> <EditableText name="invoice.issueDate" type="date" />
+        <b>Issue Date:</b> <EditableText name="invoice.issueDate" type="date" InputStyles={{width: '110px'}}/>
       </div>
       <div>
-        <b>Due Date:</b> <EditableText name="invoice.dueDate" type="date" />
+        <b>Due Date:</b> <EditableText name="invoice.dueDate" type="date" InputStyles={{width: '110px'}}/>
       </div>
     </section>
   )
