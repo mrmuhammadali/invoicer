@@ -12,7 +12,6 @@ import { Sums } from './Sums'
 import { Terms } from './Terms'
 import { useStyles } from './index.styles'
 import { Values } from '../../types'
-import WithSnackbar from '../WithSnackbar/WithSnackbar';
 
 type Props = {
   values: Values,
@@ -41,6 +40,4 @@ const Template1 = ({ values }: Props) => {
   )
 }
 
-const WrappedComponent = WithSnackbar(Template1);
-
-export default WrappedComponent;
+export default Template1;

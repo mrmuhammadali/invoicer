@@ -8,8 +8,4 @@ export const useStyles = makeStyles({
   error: {
     backgroundColor: '#d32f2f',
   },
-  message: {
-    display: 'flex',
-    alignItems: 'center',
-  },
 })
