@@ -26,7 +26,7 @@ export const useStyles = makeStyles({
     '-moz-osx-font-smoothing': 'grayscale',
     font: "normal 13px/1.4em 'Open Sans', Sans-serif",
     width: '800px',
-    margin: '0 auto',
+    margin: '20px auto',
     padding: '20px',
     paddingBottom: 0,
     background: '#fff',

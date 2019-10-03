@@ -17,7 +17,7 @@ type Props = {
   values: Values,
 }
 
-export function Template1({ values }: Props) {
+const Template1 = ({ values }: Props) => {
   const styles = useStyles({})
 
   return (
@@ -39,3 +39,5 @@ export function Template1({ values }: Props) {
     </div>
   )
 }
+
+export default Template1;

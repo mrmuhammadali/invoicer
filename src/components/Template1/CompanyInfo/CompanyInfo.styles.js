@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/styles'
 export const useStyles = makeStyles({
   root: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'baseline',
     justifyContent: 'space-between',
   },
 
@@ -21,5 +21,6 @@ export const useStyles = makeStyles({
   field: {
     fontSize: '12px',
     color: '#858585',
+    paddingLeft: '3px'
   },
 })

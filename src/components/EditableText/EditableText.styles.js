@@ -14,7 +14,8 @@ export const useStyles = makeStyles({
     resize: 'none',
 
     '&:focus': {
-      borderColor: '#ddd',
+      borderBottom: '1px solid #ddd',
+      borderRadius: '0px'
     },
 
     '&[type="number"]': {

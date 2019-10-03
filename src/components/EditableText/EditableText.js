@@ -4,6 +4,7 @@ import * as React from 'react'
 import { FieldProps, useField, useFormikContext } from 'formik'
 import size from 'lodash/fp/size'
 import toString from 'lodash/fp/toString'
+import { TextField } from '@material-ui/core'
 
 // src
 import { useStyles } from './EditableText.styles'
@@ -16,7 +17,7 @@ type Props = FieldProps & {
 
 export function EditableText(props: Props) {
   const styles = useStyles(props)
-  const { className, fontSize = 15, type = 'text', name } = props
+  const { className, fontSize = 15, type = 'text', name, InputStyles, placeholder = '' } = props
   const {
     values: { isEditable = false },
   } = useFormikContext()
@@ -26,7 +27,10 @@ export function EditableText(props: Props) {
     return (
       <textarea
         {...field}
+        rows={2}
         disabled={!isEditable}
+        placeholder={placeholder}
+        style={InputStyles ? InputStyles : {width: '100%'}}
         className={[styles.input, className].join(' ')}
       />
     )
@@ -41,9 +45,10 @@ export function EditableText(props: Props) {
       {...field}
       disabled={!isEditable}
       value={value}
-      style={{ width: size(toString(value)) * (fontSize / 2) + c + 'px' }}
+      style={InputStyles ?  InputStyles : {width: size(toString(value)) * (fontSize / 2) + c + 'px' }}
       className={[styles.input, className].join(' ')}
       type={type}
+      placeholder={placeholder}
     />
   )
 }

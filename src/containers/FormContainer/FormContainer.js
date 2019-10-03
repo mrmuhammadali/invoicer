@@ -1,10 +1,10 @@
 // @flow
 // libs
-import * as React from 'react'
+import React from 'react'
 import { FormikProps } from 'formik'
 
 // src
-import { Template1 } from '../../components/Template1'
+import Template1 from '../../components/Template1'
 import { Toolbar } from '../../components/Toolbar'
 import { Values } from '../../types'
 
