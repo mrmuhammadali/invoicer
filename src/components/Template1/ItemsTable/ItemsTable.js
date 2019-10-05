@@ -14,12 +14,12 @@ import TableRow from '@material-ui/core/TableRow'
 
 // src
 import { EditableText } from '../../EditableText'
-import { Item, Values } from '../../../types'
+import { InvoiceItem, Values } from '../../../types'
 import { makeUID } from '../../../utils'
 import { useStyles } from './ItemsTable.styles'
 
-const ITEM: Item = {
-  id: makeUID(),
+const getDefaultItem: InvoiceItem = (id) => {
+  id,
   description: 'Enter description here...',
   quantity: 0,
   unitPrice: 0,
@@ -120,7 +120,7 @@ export function ItemsTable() {
             <Button
               color="primary"
               className="dontPrint"
-              onClick={() => push(ITEM)}
+              onClick={() => push(getDefaultItem(makeUID()))}
             >
               Add a row
             </Button>

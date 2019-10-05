@@ -1,6 +1,7 @@
 // @flow
 
 export type InvoiceItem = {
+  id: string,
   description: string,
   quantity: number,
   unitPrice: number,
