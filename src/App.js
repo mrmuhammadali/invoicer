@@ -12,6 +12,7 @@ import { Helmet } from 'fusion-plugin-react-helmet-async'
 export const App = (
   <React.Fragment>
     <Helmet>
+      <title>React Invoicer</title>
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     </Helmet>
     <Switch>
