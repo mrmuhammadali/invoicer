@@ -18,12 +18,12 @@ import { InvoiceItem, Values } from '../../../types'
 import { makeUID } from '../../../utils'
 import { useStyles } from './ItemsTable.styles'
 
-const getDefaultItem: InvoiceItem = (id) => {
+const getDefaultItem: InvoiceItem = id => ({
   id,
   description: 'Enter description here...',
   quantity: 0,
   unitPrice: 0,
-}
+})
 
 type FieldArrayProps = ArrayHelpers & {
   form: FormikProps<Values>,
