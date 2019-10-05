@@ -37,9 +37,9 @@ export const INITIAL_VALUES = {
     terms:
       'If you have any questions about this invoice, please contact Anjum 07989406091, Thank you.',
     items: [
-      { description: 'Item description 1', quantity: 2, unitPrice: 100 },
-      { description: 'Item description 2', quantity: 4, unitPrice: 150 },
-      { description: 'Item description 3', quantity: 4, unitPrice: 150 },
+      { id: 1, description: 'Item description 1', quantity: 1, unitPrice: 100 },
+      { id: 2, description: 'Item description 2', quantity: 2, unitPrice: 200 },
+      { id: 3, description: 'Item description 3', quantity: 3, unitPrice: 300 },
     ],
   },
 

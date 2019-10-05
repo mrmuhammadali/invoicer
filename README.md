@@ -11,4 +11,3 @@ Visit our documentation at: https://fusionjs.com
 4. Print / Email
 5. Image / Logo upload
 6. Change Currency / Dropdown
-7. Fix removing of items

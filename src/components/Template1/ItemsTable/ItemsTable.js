@@ -2,24 +2,24 @@
 // libs
 import * as React from 'react'
 import { ArrayHelpers, FieldArray, FormikProps } from 'formik'
-import {
-  IconButton,
-  Button,
-  Icon,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  Paper,
-} from '@material-ui/core'
+import Button from '@material-ui/core/Button'
+import Icon from '@material-ui/core/Icon'
+import IconButton from '@material-ui/core/IconButton'
+import Paper from '@material-ui/core/Paper'
+import Table from '@material-ui/core/Table'
+import MuiTableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableHead from '@material-ui/core/TableHead'
+import TableRow from '@material-ui/core/TableRow'
 
 // src
 import { EditableText } from '../../EditableText'
 import { Item, Values } from '../../../types'
+import { makeUID } from '../../../utils'
 import { useStyles } from './ItemsTable.styles'
 
 const ITEM: Item = {
+  id: makeUID(),
   description: 'Enter description here...',
   quantity: 0,
   unitPrice: 0,
@@ -28,6 +28,63 @@ const ITEM: Item = {
 type FieldArrayProps = ArrayHelpers & {
   form: FormikProps<Values>,
   name: string,
+}
+
+function TableBody() {
+  const styles = useStyles({})
+
+  return (
+    <MuiTableBody>
+      <FieldArray
+        name="invoice.items"
+        render={(fieldArrayProps: FieldArrayProps) => {
+          const {
+            form: {
+              values: {
+                invoice: { items = [] },
+                isEditable,
+              },
+            },
+            remove,
+          } = fieldArrayProps
+
+          return items.map(({ id, quantity, unitPrice }, index) => {
+            const itemString = `invoice.items[${index}]`
+
+            return (
+              <TableRow key={id}>
+                <TableCell align="center">{index + 1}</TableCell>
+                <TableCell>
+                  <EditableText name={`${itemString}.description`} />
+                </TableCell>
+                <TableCell align="right">
+                  <EditableText name={`${itemString}.quantity`} type="number" />
+                </TableCell>
+                <TableCell align="right">
+                  <EditableText
+                    name={`${itemString}.unitPrice`}
+                    type="number"
+                  />
+                </TableCell>
+                <TableCell align="center">{quantity * unitPrice}</TableCell>
+                <TableCell className="dontPrint" align="center">
+                  {isEditable && (
+                    <IconButton
+                      className={styles.iconButton}
+                      size="small"
+                      onClick={() => remove(index)}
+                    >
+                      <Icon fontSize="inherit">delete</Icon>
+                    </IconButton>
+                  )}
+                </TableCell>
+              </TableRow>
+            )
+          })
+        }}
+      />
+    </MuiTableBody>
+  )
 }
 
 export function ItemsTable() {
@@ -47,60 +104,7 @@ export function ItemsTable() {
               <TableCell></TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            <FieldArray
-              name="invoice.items"
-              render={(fieldArrayProps: FieldArrayProps) => {
-                const {
-                  form: {
-                    values: {
-                      invoice: { items = [] },
-                      isEditable,
-                    },
-                  },
-                  remove,
-                } = fieldArrayProps
-
-                return items.map(({ quantity, unitPrice }, index) => {
-                  const itemString = `invoice.items[${index}]`
-
-                  return (
-                    <TableRow key={index + 1}>
-                      <TableCell align="center">{index + 1}</TableCell>
-                      <TableCell>
-                        <EditableText name={`${itemString}.description`} />
-                      </TableCell>
-                      <TableCell align="right">
-                        <EditableText
-                          name={`${itemString}.quantity`}
-                          type="number"
-                        />
-                      </TableCell>
-                      <TableCell align="right">
-                        <EditableText
-                          name={`${itemString}.unitPrice`}
-                          type="number"
-                        />
-                      </TableCell>
-                      <TableCell align="center">
-                        {quantity * unitPrice}
-                      </TableCell>
-                      <TableCell className="dontPrint" align="center">
-                        {isEditable && (
-                          <IconButton
-                            className={styles.iconButton}
-                            onClick={() => remove(index)}
-                          >
-                            <Icon className={styles.deleteIcon}>delete</Icon>
-                          </IconButton>
-                        )}
-                      </TableCell>
-                    </TableRow>
-                  )
-                })
-              }}
-            />
-          </TableBody>
+          <TableBody />
         </Table>
       </Paper>
 

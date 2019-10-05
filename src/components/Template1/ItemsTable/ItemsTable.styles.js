@@ -29,15 +29,8 @@ export const useStyles = makeStyles({
       padding: '10px 4px',
     },
   },
-  deleteIcon: {
-    fontSize: 16,
-    color: '#e00707',
-  },
-  addRow: {
-    color: '#0078c3',
-    cursor: 'pointer',
-  },
+
   iconButton: {
-    padding: '8px',
+    color: '#e00707',
   },
 })
