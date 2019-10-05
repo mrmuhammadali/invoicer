@@ -12,4 +12,3 @@ Visit our documentation at: https://fusionjs.com
 5. Image / Logo upload
 6. Change Currency / Dropdown
 7. Fix removing of items
-8. Sticky Header

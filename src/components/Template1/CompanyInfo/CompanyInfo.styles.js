@@ -1,5 +1,5 @@
 // libs
-import { makeStyles } from '@material-ui/styles'
+import makeStyles from '@material-ui/styles/makeStyles'
 
 export const useStyles = makeStyles({
   root: {
@@ -16,7 +16,10 @@ export const useStyles = makeStyles({
   name: {
     fontSize: '28px',
     textTransform: 'uppercase',
-    padding: '4px 0',
+
+    '&:after': {
+      paddingBottom: '5px',
+    },
   },
 
   field: {

@@ -1,5 +1,5 @@
 // libs
-import { makeStyles } from '@material-ui/styles'
+import makeStyles from '@material-ui/styles/makeStyles'
 
 export const useStyles = makeStyles({
   success: {

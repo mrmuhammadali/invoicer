@@ -1,15 +1,17 @@
 // libs
-import { makeStyles } from '@material-ui/styles'
+import makeStyles from '@material-ui/styles/makeStyles'
 
 export const useStyles = makeStyles({
-  root: {},
-  toolbar: {
-    justifyContent: 'flex-end'
+  root: { backgroundColor: '#415472' },
+
+  title: {
+    margin: 0,
+    flexGrow: 1,
+    fontSize: '30px',
+    fontFamily: 'Sanchez, Serif',
   },
-  materialIcons: {
-    color: 'white'
+
+  button: {
+    margin: '0 5px',
   },
-  appBar: {
-    backgroundColor: '#415472'
-  }
 })

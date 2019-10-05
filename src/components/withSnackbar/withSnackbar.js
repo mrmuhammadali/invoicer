@@ -1,24 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { Snackbar, Icon, SnackbarContent, IconButton } from '@material-ui/core';
+// libs
+import React, { useState, useEffect } from 'react'
+import Icon from '@material-ui/core/Icon'
+import IconButton from '@material-ui/core/IconButton'
+import Snackbar from '@material-ui/core/Snackbar'
+import SnackbarContent from '@material-ui/core/SnackbarContent'
+
+// src
 import { useStyles } from './withSnackbar.styles'
 
-export const withSnackbar = (WrappedComponent) => (props) => {
-  const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState('');
-  const [variant, setVariant] = useState('error');
-  const classes = useStyles();
+export const withSnackbar = WrappedComponent => props => {
+  const [open, setOpen] = useState(false)
+  const [message, setMessage] = useState('')
+  const [variant, setVariant] = useState('error')
+  const classes = useStyles()
 
   function showSnackbar(text: string, type: string): void {
-    setMessage(text);
-    setVariant(type);
-    setOpen(true);
+    setMessage(text)
+    setVariant(type)
+    setOpen(true)
   }
 
   return (
     <React.Fragment>
-      <WrappedComponent
-        {...props} showSnackbar={showSnackbar}
-      />
+      <WrappedComponent {...props} showSnackbar={showSnackbar} />
       <Snackbar
         anchorOrigin={{
           vertical: 'bottom',
@@ -33,12 +37,16 @@ export const withSnackbar = (WrappedComponent) => (props) => {
           aria-describedby="client-snackbar"
           message={message}
           action={[
-            <IconButton aria-label="close" color="inherit" onClick={() => setOpen(false)}>
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              onClick={() => setOpen(false)}
+            >
               <Icon>close</Icon>
             </IconButton>,
           ]}
         />
       </Snackbar>
     </React.Fragment>
-  );
-};
+  )
+}

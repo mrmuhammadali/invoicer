@@ -2,9 +2,6 @@
 // libs
 import React, { useState } from 'react'
 import { FieldProps, useField, useFormikContext } from 'formik'
-import size from 'lodash/fp/size'
-import toString from 'lodash/fp/toString'
-import { TextField } from '@material-ui/core'
 
 // src
 import { useStyles } from './EditableText.styles'
