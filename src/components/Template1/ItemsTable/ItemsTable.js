@@ -1,7 +1,7 @@
 // @flow
 // libs
 import * as React from 'react'
-import { ArrayHelpers, FieldArray, FormikProps, useFormikContext } from 'formik'
+import { ArrayHelpers, FieldArray, FormikProps } from 'formik'
 import {
   IconButton,
   Button,
@@ -31,8 +31,7 @@ type FieldArrayProps = ArrayHelpers & {
 }
 
 export function ItemsTable() {
-  const { values: { isEditable = false } = {} } = useFormikContext()
-  const styles = useStyles({ isEditable })
+  const styles = useStyles({})
 
   return (
     <section className={styles.root}>
@@ -40,7 +39,7 @@ export function ItemsTable() {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>#</TableCell>
+              <TableCell align="center">#</TableCell>
               <TableCell>Description</TableCell>
               <TableCell align="right">Quantity</TableCell>
               <TableCell align="right">Unit Price</TableCell>
@@ -67,7 +66,7 @@ export function ItemsTable() {
 
                   return (
                     <TableRow key={index + 1}>
-                      <TableCell scope="row">{index + 1}</TableCell>
+                      <TableCell align="center">{index + 1}</TableCell>
                       <TableCell>
                         <EditableText name={`${itemString}.description`} />
                       </TableCell>
@@ -86,7 +85,7 @@ export function ItemsTable() {
                       <TableCell align="center">
                         {quantity * unitPrice}
                       </TableCell>
-                      <TableCell className="dontPrint">
+                      <TableCell className="dontPrint" align="center">
                         {isEditable && (
                           <IconButton
                             className={styles.iconButton}

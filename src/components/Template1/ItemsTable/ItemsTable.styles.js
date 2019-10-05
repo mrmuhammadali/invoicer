@@ -17,22 +17,11 @@ export const useStyles = makeStyles({
         color: '#858585',
         fontWeight: '700',
       },
-      '& tr': {
-        display: 'grid',
-        gridTemplateColumns: ({ isEditable }) =>
-          `32px auto 85px 85px 200px ${isEditable ? '50px' : 0}`,
-      },
     },
 
     '& tbody': {
       '& th': {
         padding: '11px 4px',
-      },
-      '& tr': {
-        display: 'grid',
-        alignItems: 'end',
-        gridTemplateColumns: ({ isEditable }) =>
-          `32px auto 85px 85px 200px ${isEditable ? '50px' : 0}`,
       },
     },
 
