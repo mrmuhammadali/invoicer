@@ -10,13 +10,13 @@ export const useStyles = makeStyles({
   '@global body': {
     background: '#858585',
     margin: 0,
-    '-webkit-print-color-adjust': 'exact'
+    '-webkit-print-color-adjust': 'exact',
   },
 
   '@global @media print': {
     '.dontPrint': {
-      display: 'none'
-    }
+      display: 'none',
+    },
   },
 
   root: {
@@ -28,11 +28,14 @@ export const useStyles = makeStyles({
     width: '800px',
     margin: '20px auto',
     padding: '20px',
-    paddingBottom: 0,
     background: '#fff',
 
     '& section': {
-      paddingBottom: '15px',
+      marginBottom: '15px',
+
+      '&:last-of-type': {
+        marginBottom: 0,
+      },
     },
   },
 

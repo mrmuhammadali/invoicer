@@ -29,7 +29,7 @@ export function Sums({ values }: Props) {
           <tr>
             <th>Tax (%): </th>
             <td>
-              <EditableText name="invoice.taxValue" type="number" InputStyles={{width: '50px'}}/>
+              <EditableText name="invoice.taxValue" type="number" />
             </td>
           </tr>
           <tr className={styles.amountTotal}>

@@ -14,4 +14,13 @@ export const useStyles = makeStyles({
     fontSize: '16px',
     fontWeight: 'bold',
   },
+
+  date: {
+    display: 'flex',
+
+    '& div': {
+      flexGrow: 1,
+      marginLeft: 5,
+    },
+  },
 })

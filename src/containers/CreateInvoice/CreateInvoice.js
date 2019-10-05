@@ -13,7 +13,10 @@ export function CreateInvoice() {
     <Formik
       initialValues={INITIAL_VALUES}
       component={FormContainer}
-      onSubmit={values => submitForm(values)}
+      validate={values => {
+        console.log(values)
+      }}
+      onSubmit={submitForm}
     />
   )
 }

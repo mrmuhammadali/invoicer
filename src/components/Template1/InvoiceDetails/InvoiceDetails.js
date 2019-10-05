@@ -19,11 +19,13 @@ export function InvoiceDetails() {
 
       <div className={styles.title}>Invoice</div>
 
-      <div>
-        <b>Issue Date:</b> <EditableText name="invoice.issueDate" type="date" InputStyles={{width: '110px'}}/>
+      <div className={styles.date}>
+        <b>Issue Date:</b>
+        <EditableText name="invoice.issueDate" type="date" />
       </div>
-      <div>
-        <b>Due Date:</b> <EditableText name="invoice.dueDate" type="date" InputStyles={{width: '110px'}}/>
+      <div className={styles.date}>
+        <b>Due Date:</b>
+        <EditableText name="invoice.dueDate" type="date" />
       </div>
     </section>
   )

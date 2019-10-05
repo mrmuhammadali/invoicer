@@ -16,7 +16,6 @@ export const useStyles = makeStyles({
     fontWeight: 'bold',
     fontSize: '15px',
     textTransform: 'uppercase',
-    marginBottom: '7px',
   },
 
   field: {},

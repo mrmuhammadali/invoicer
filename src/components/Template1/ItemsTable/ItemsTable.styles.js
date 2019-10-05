@@ -15,12 +15,13 @@ export const useStyles = makeStyles({
         textTransform: 'uppercase',
         padding: '6px 4px',
         color: '#858585',
-        fontWeight: '700'
+        fontWeight: '700',
       },
       '& tr': {
         display: 'grid',
-        gridTemplateColumns: '32px 252px 70px 88px 289px 70px',
-      }
+        gridTemplateColumns: ({ isEditable }) =>
+          `32px auto 85px 85px 200px ${isEditable ? '50px' : 0}`,
+      },
     },
 
     '& tbody': {
@@ -30,23 +31,24 @@ export const useStyles = makeStyles({
       '& tr': {
         display: 'grid',
         alignItems: 'end',
-        gridTemplateColumns: '32px 252px 70px 88px 289px 70px'
-      }
+        gridTemplateColumns: ({ isEditable }) =>
+          `32px auto 85px 85px 200px ${isEditable ? '50px' : 0}`,
+      },
     },
 
     '& td': {
-      padding: '10px 4px'
-    }
+      padding: '10px 4px',
+    },
   },
   deleteIcon: {
-    fontSize: 16, 
-    color: '#e00707'
+    fontSize: 16,
+    color: '#e00707',
   },
   addRow: {
     color: '#0078c3',
-    cursor: 'pointer'
+    cursor: 'pointer',
   },
   iconButton: {
-    padding: '8px'
-  }
+    padding: '8px',
+  },
 })

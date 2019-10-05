@@ -16,11 +16,11 @@ export const useStyles = makeStyles({
   name: {
     fontSize: '28px',
     textTransform: 'uppercase',
+    padding: '4px 0',
   },
 
   field: {
     fontSize: '12px',
     color: '#858585',
-    paddingLeft: '3px'
   },
 })
