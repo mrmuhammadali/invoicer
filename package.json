@@ -1,25 +1,7 @@
 {
-  "name": "invoice-generator",
-  "version": "0.0.0",
+  "name": "invoicer",
+  "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@material-ui/core": "^4.3.0",
-    "@material-ui/styles": "^4.3.0",
-    "date-fns": "^1.30.1",
-    "formik": "next",
-    "fusion-cli": "^2.2.1",
-    "fusion-core": "^2.0.3",
-    "fusion-plugin-http-router": "^0.3.5",
-    "fusion-plugin-react-helmet-async": "^2.0.5",
-    "fusion-plugin-react-router": "^2.0.5",
-    "fusion-plugin-universal-events": "^2.0.4",
-    "fusion-react": "^3.1.2",
-    "fusion-tokens": "^2.0.3",
-    "mongoose": "^5.6.8",
-    "puppeteer": "^1.19.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
-  },
   "scripts": {
     "dev": "fusion dev",
     "lint": "eslint .",
@@ -28,6 +10,24 @@
     "build-production": "fusion build --production",
     "start": "fusion start --port=$PORT",
     "heroku-postbuild": "fusion build --production && sed -i \"s;$(pwd);/app;g\" .fusion/dist/production/server/server-main.js"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.5.0",
+    "@material-ui/styles": "^4.5.0",
+    "date-fns": "^2.4.1",
+    "formik": "next",
+    "fusion-cli": "^2.4.2",
+    "fusion-core": "^2.0.6",
+    "fusion-plugin-http-router": "^0.3.5",
+    "fusion-plugin-react-helmet-async": "^2.1.2",
+    "fusion-plugin-react-router": "^2.0.8",
+    "fusion-plugin-universal-events": "^2.0.7",
+    "fusion-react": "^3.1.5",
+    "fusion-tokens": "^2.0.6",
+    "mongoose": "^5.7.3",
+    "puppeteer": "^1.20.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   },
   "devDependencies": {
     "eslint": "^6.1.0",

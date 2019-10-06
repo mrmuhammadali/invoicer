@@ -7,7 +7,7 @@ export const useStyles = makeStyles({
   title: {
     margin: 0,
     flexGrow: 1,
-    fontSize: '30px',
+    fontSize: '20px',
     fontFamily: 'Sanchez, Serif',
   },
 
