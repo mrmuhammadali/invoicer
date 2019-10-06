@@ -1,13 +1,13 @@
 // libs
-import addWeeks from 'date-fns/add_weeks'
+import addWeeks from 'date-fns/addWeeks'
 import format from 'date-fns/format'
 
 // src
 import { makeUID } from '../../utils'
 
-const DATE_TEMPLATE = 'YYYY-MM-DD'
+const DATE_TEMPLATE = 'yyyy-MM-dd'
 const issueDate = format(new Date(), DATE_TEMPLATE)
-const dueDate = format(addWeeks(issueDate, 1), DATE_TEMPLATE)
+const dueDate = format(addWeeks(new Date(), 1), DATE_TEMPLATE)
 
 export const INITIAL_VALUES = {
   seller: {
