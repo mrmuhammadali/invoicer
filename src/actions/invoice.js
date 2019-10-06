@@ -26,6 +26,7 @@ export function fetchInvoiceById(id: string, dispatch: Function) {
     })
     .catch(error => {
       dispatch({ type: FETCH_INVOICE_BY_ID_FAILURE, error })
+      return Promise.reject(error)
     })
 }
 
@@ -58,21 +59,25 @@ function downloadInvoice(values: Values) {
 function shareInvoice(values: Values) {
   return createInvoice(values).then(({ invoiceId }) => {
     if (invoiceId) {
-      copyTextToClipboard(invoiceId)
+      return copyTextToClipboard(`/${invoiceId}`)
     }
   })
 }
 
-export function submitForm({ action, ...values }: Values) {
-  switch (action) {
-    case 'download': {
-      return downloadInvoice(values)
-    }
-    case 'save': {
-      return createInvoice(values)
-    }
-    case 'share': {
-      return shareInvoice(values)
+export function submitForm(showSnackbar) {
+  return ({ action, ...values }: Values) => {
+    switch (action) {
+      case 'download': {
+        return downloadInvoice(values)
+      }
+      case 'save': {
+        return createInvoice(values)
+      }
+      case 'share': {
+        return shareInvoice(values).then(res =>
+          showSnackbar('Invoice ID copied to clipboard.', 'success'),
+        )
+      }
     }
   }
 }

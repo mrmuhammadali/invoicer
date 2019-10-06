@@ -13,7 +13,7 @@ export function FormContainer(props: FormikProps<Values>) {
 
   function onClick(action: string) {
     Promise.resolve(setFieldValue('action', action, false))
-      .then(() => handleSubmit())
+      .then(handleSubmit)
   }
 
   return (

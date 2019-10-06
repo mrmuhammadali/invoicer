@@ -52,7 +52,7 @@ function TableBody() {
             const itemString = `invoice.items[${index}]`
 
             return (
-              <TableRow key={id}>
+              <TableRow key={id || index}>
                 <TableCell align="center">{index + 1}</TableCell>
                 <TableCell>
                   <EditableText name={`${itemString}.description`} />

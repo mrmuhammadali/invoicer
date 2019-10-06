@@ -8,10 +8,12 @@ import { RouteComponentProps } from 'react-router'
 import { fetchInvoiceById, submitForm } from '../../actions'
 import { FormContainer } from '../FormContainer'
 import { reducer } from './reducer'
+import { useSnackbar } from '../../components/Snackbar/useSnackbar'
 
 export function ViewInvoice(props: RouteComponentProps) {
   const { id } = props.match.params
   const [{ isLoading, payload }, dispatch] = useReducer(reducer, {})
+  const { showSnackbar } = useSnackbar()
 
   useEffect(() => {
     fetchInvoiceById(id, dispatch)
@@ -26,7 +28,9 @@ export function ViewInvoice(props: RouteComponentProps) {
       <Formik
         initialValues={payload}
         component={FormContainer}
-        onSubmit={({ action }) => submitForm({ action, ...payload })}
+        onSubmit={({ action }) =>
+          submitForm(showSnackbar)({ action, ...payload })
+        }
       />
     )
   }
