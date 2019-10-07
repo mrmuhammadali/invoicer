@@ -5,10 +5,12 @@ import { Formik } from 'formik'
 import { RouteComponentProps } from 'react-router'
 
 // src
-import { fetchInvoiceById, submitForm } from '../../actions'
+import { copyTextToClipboard, getBrowserOrigin } from '../../utils'
+import { downloadInvoice, fetchInvoiceById } from '../../actions'
 import { FormContainer } from '../FormContainer'
 import { reducer } from './reducer'
 import { useSnackbar } from '../../components/Snackbar/useSnackbar'
+import { Values } from '../../types'
 
 export function ViewInvoice(props: RouteComponentProps) {
   const { id } = props.match.params
@@ -28,9 +30,23 @@ export function ViewInvoice(props: RouteComponentProps) {
       <Formik
         initialValues={payload}
         component={FormContainer}
-        onSubmit={({ action }) =>
-          submitForm(showSnackbar)({ action, ...payload })
-        }
+        onSubmit={({ action, invoice }: Values) => {
+          switch (action) {
+            case 'download': {
+              return downloadInvoice(payload)
+            }
+            case 'share': {
+              return copyTextToClipboard(
+                `${getBrowserOrigin()}/${invoice.invoiceId}`,
+              ).then(() =>
+                showSnackbar('Shareable link copied to clipboard.', 'success'),
+              )
+            }
+            case 'print': {
+              return window.print()
+            }
+          }
+        }}
       />
     )
   }

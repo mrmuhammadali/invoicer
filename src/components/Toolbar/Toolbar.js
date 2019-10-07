@@ -52,27 +52,15 @@ export function ToolbarWithRouter(props: Props) {
           tooltip="Download"
           onClick={() => onClick('download')}
         />
-        {path === '/' && (
-          <ToolbarButton
-            icon="save"
-            tooltip="Save"
-            onClick={() => onClick('save')}
-          />
-        )}
-        <ToolbarButton
-          icon="print"
-          tooltip="Print"
-          onClick={() => onClick('print')}
-        />
-        <ToolbarButton
-          icon="email"
-          tooltip="Email"
-          onClick={() => onClick('email')}
-        />
         <ToolbarButton
           icon="share"
           tooltip="Share"
           onClick={() => onClick('share')}
+        />
+        <ToolbarButton
+          icon="print"
+          tooltip="Print"
+          onClick={() => onClick('print')}
         />
       </MuiToolbar>
     </AppBar>

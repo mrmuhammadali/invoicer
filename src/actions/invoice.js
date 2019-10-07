@@ -30,7 +30,7 @@ export function fetchInvoiceById(id: string, dispatch: Function) {
     })
 }
 
-function createInvoice(values: Values) {
+export function createInvoice(values: Values) {
   return fetch('/api/invoice', {
     method: 'POST',
     body: JSON.stringify(values),
@@ -38,7 +38,7 @@ function createInvoice(values: Values) {
   }).then(handleFetchResponse)
 }
 
-function downloadInvoice(values: Values) {
+export function downloadInvoice(values: Values) {
   return fetch('/api/invoice/download', {
     method: 'POST',
     body: JSON.stringify(values),
@@ -54,30 +54,4 @@ function downloadInvoice(values: Values) {
       link.click()
       link.parentNode.removeChild(link)
     })
-}
-
-function shareInvoice(values: Values) {
-  return createInvoice(values).then(({ invoiceId }) => {
-    if (invoiceId) {
-      return copyTextToClipboard(`/${invoiceId}`)
-    }
-  })
-}
-
-export function submitForm(showSnackbar) {
-  return ({ action, ...values }: Values) => {
-    switch (action) {
-      case 'download': {
-        return downloadInvoice(values)
-      }
-      case 'save': {
-        return createInvoice(values)
-      }
-      case 'share': {
-        return shareInvoice(values).then(res =>
-          showSnackbar('Invoice ID copied to clipboard.', 'success'),
-        )
-      }
-    }
-  }
 }

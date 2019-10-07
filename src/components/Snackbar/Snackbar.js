@@ -11,7 +11,7 @@ import { useStyles } from './Snackbar.styles'
 type Props = {
   message: string,
   open: boolean,
-  variant: string,
+  variant: 'success' | 'info' | 'error' | 'warning',
   setOpen: (open: boolean) => void,
 }
 

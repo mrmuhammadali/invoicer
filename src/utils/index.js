@@ -38,7 +38,7 @@ function fallbackCopyTextToClipboard(text: string): void {
     const successful = document.execCommand('copy')
     document.body.removeChild(input)
     if (successful) {
-      return Promise.resolve('Copying to clipboard was successful!')
+      return Promise.resolve(text)
     }
 
     return Promise.reject(Error('Could not copy text to clipboard.'))
@@ -55,8 +55,9 @@ export function copyTextToClipboard(text: string): void {
 
   return navigator.clipboard
     .writeText(text)
-    .then(
-      () => Promise.resolve('Copying to clipboard was successful!'),
-      err => Promise.reject(err),
-    )
+    .then(() => Promise.resolve(text), err => Promise.reject(err))
+}
+
+export function getBrowserOrigin(): string {
+  return window.location.origin
 }

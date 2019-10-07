@@ -6,8 +6,6 @@ Visit our documentation at: https://fusionjs.com
 
 ## TODOs
 1. Date / Number Field
-2. Notifications
-3. Block UI when requesting
-4. Print / Email
+4. Email
 5. Image / Logo upload
 6. Change Currency / Dropdown
