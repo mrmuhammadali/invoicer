@@ -8,7 +8,7 @@ export const useStyles = makeStyles({
     '&:after': {
       display: 'block',
       content: '""',
-      borderBottom: 'solid 1px #777',
+      borderBottom: 'solid 1px #415472',
       transform: 'scaleX(0)',
       transition: 'transform 250ms ease-in-out',
     },

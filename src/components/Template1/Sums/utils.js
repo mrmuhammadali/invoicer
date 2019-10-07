@@ -11,3 +11,7 @@ export function calculateSubTotal(items: InvoiceItem[]): number {
 export function calculateTotal(subTotal: number, tax: number): number {
   return (subTotal / 100) * tax + subTotal
 }
+
+export function round(number: number) {
+  return Math.round(number * 100) / 100
+}

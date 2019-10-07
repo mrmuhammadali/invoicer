@@ -3,7 +3,7 @@
 import * as React from 'react'
 
 // src
-import { calculateSubTotal, calculateTotal } from './utils'
+import { calculateSubTotal, calculateTotal, round } from './utils'
 import { EditableText } from '../../EditableText'
 import { useStyles } from './Sums.styles'
 import { Values } from '../../../types'
@@ -15,8 +15,8 @@ type Props = {
 export function Sums({ values }: Props) {
   const styles = useStyles({})
   const { amountPaid, items, taxValue } = values.invoice
-  const subTotalAmount = calculateSubTotal(items)
-  const totalAmount = calculateTotal(subTotalAmount, taxValue)
+  const subTotalAmount = round(calculateSubTotal(items))
+  const totalAmount = round(calculateTotal(subTotalAmount, taxValue))
 
   return (
     <section className={styles.root}>
@@ -33,7 +33,7 @@ export function Sums({ values }: Props) {
             </td>
           </tr>
           <tr className={styles.amountTotal}>
-            <td colSpan={2}>{totalAmount}</td>
+            <td colSpan={2}>£ {totalAmount}</td>
           </tr>
           <tr>
             <th>Amount Paid: </th>

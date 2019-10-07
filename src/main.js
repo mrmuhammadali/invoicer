@@ -14,7 +14,7 @@ import { App as ClientApp } from './App'
 import { handlers } from './handlers'
 import { MONGODB_URI } from './constants'
 
-export default function () {
+export default function() {
   const app = new App(ClientApp)
   app.register(Router)
   app.register(HelmetPlugin)
@@ -23,6 +23,7 @@ export default function () {
     mongoose
       .connect(MONGODB_URI, {
         useNewUrlParser: true,
+        useUnifiedTopology: true,
       })
       .then(res => {
         console.log('Connected!!!')

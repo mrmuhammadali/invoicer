@@ -44,8 +44,8 @@ export function ToolbarWithRouter(props: Props) {
   } = props
 
   return (
-    <AppBar className={styles.root} position="sticky">
-      <MuiToolbar variant="dense" className="dontPrint">
+    <AppBar className={[styles.root, 'dontPrint'].join(' ')} position="sticky">
+      <MuiToolbar variant="dense">
         <h1 className={styles.title}>React Invoicer</h1>
         <ToolbarButton
           icon="cloud_download"

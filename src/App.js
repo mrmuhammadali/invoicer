@@ -3,12 +3,25 @@
 import * as React from 'react'
 import { Helmet } from 'fusion-plugin-react-helmet-async'
 import { Route, Switch } from 'fusion-plugin-react-router'
+import { split } from 'fusion-react'
 
 // src
-import { CreateInvoice } from './containers/CreateInvoice'
 import { PageNotFound } from './containers/PageNotFound'
 import { SnackbarProvider } from './components/Snackbar'
-import { ViewInvoice } from './containers/ViewInvoice/index'
+
+const CreateInvoice = split({
+  defer: true,
+  load: () => import('./containers/CreateInvoice'),
+  LoadingComponent: () => 'Loading...',
+  ErrorComponent: () => 'Error!',
+})
+
+const ViewInvoice = split({
+  defer: true,
+  load: () => import('./containers/ViewInvoice'),
+  LoadingComponent: () => 'Loading...',
+  ErrorComponent: () => 'Error!',
+})
 
 export const App = (
   <React.Fragment>

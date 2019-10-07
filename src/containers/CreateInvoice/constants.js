@@ -11,19 +11,19 @@ const dueDate = format(addWeeks(new Date(), 1), DATE_TEMPLATE)
 
 export const INITIAL_VALUES = {
   seller: {
-    name: 'N A Builders',
-    address: 'Stone Lane',
-    city: 'Peterborough',
-    phone: '07859936081',
-    email: 'mr.muhammad.ali@live.com',
+    name: 'Company Name',
+    address: 'Company address',
+    city: 'City',
+    phone: 'Phone',
+    email: 'email@company.com',
   },
 
   client: {
-    name: 'Mark Wood',
-    address: 'Park Road',
-    city: 'Peterborough',
-    phone: '079xxxxxxx',
-    email: 'email@email.com',
+    name: 'Client Name',
+    address: 'Client address',
+    city: 'City',
+    phone: 'Phone',
+    email: 'email@client.com',
   },
 
   invoice: {
@@ -32,14 +32,17 @@ export const INITIAL_VALUES = {
     dueDate,
 
     currency: 'GBP',
-    taxValue: 3,
-    amountPaid: 100,
+    taxValue: 7,
+    amountPaid: 0,
     terms:
-      'If you have any questions about this invoice, please contact Anjum 07989406091, Thank you.',
+      'If you have any questions about this invoice, please contact X, Thank you.',
     items: [
-      { id: 1, description: 'Item description 1', quantity: 1, unitPrice: 100 },
-      { id: 2, description: 'Item description 2', quantity: 2, unitPrice: 200 },
-      { id: 3, description: 'Item description 3', quantity: 3, unitPrice: 300 },
+      {
+        id: 1,
+        description: 'Enter item description here...',
+        quantity: 0,
+        unitPrice: 0,
+      },
     ],
   },
 

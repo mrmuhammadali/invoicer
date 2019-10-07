@@ -1,1 +1,1 @@
-export { ViewInvoice } from './ViewInvoice'
+export { ViewInvoice, ViewInvoice as default } from './ViewInvoice'
