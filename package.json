@@ -24,7 +24,7 @@
     "fusion-plugin-universal-events": "^2.0.7",
     "fusion-react": "^3.1.5",
     "fusion-tokens": "^2.0.6",
-    "mongoose": "^5.7.3",
+    "mongoose": "^5.7.5",
     "puppeteer": "^1.20.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
