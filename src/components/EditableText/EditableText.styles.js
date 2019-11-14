@@ -21,6 +21,7 @@ export const useStyles = makeStyles({
     }
   },
   description: {
-    maxWidth: '450px;'
+    maxWidth: '450px',
+    minHeight: '20px'
   }
 });
