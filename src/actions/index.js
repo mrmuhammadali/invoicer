@@ -1,1 +1,2 @@
-export * from './invoice'
+// @flow
+export * from './invoice';

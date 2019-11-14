@@ -1,5 +1,6 @@
+// @flow
 // libs
-import makeStyles from '@material-ui/styles/makeStyles'
+import makeStyles from '@material-ui/styles/makeStyles';
 
 export const useStyles = makeStyles({
   title: {
@@ -23,4 +24,4 @@ export const useStyles = makeStyles({
       marginLeft: 5,
     },
   },
-})
+});

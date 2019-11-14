@@ -1,5 +1,6 @@
+// @flow
 // libs
-import makeStyles from '@material-ui/styles/makeStyles'
+import makeStyles from '@material-ui/styles/makeStyles';
 
 export const useStyles = makeStyles({
   '@import': [
@@ -50,4 +51,4 @@ export const useStyles = makeStyles({
     fontStyle: 'italic',
     fontSize: '12px',
   },
-})
+});

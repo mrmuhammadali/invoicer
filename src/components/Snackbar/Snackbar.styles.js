@@ -1,5 +1,6 @@
+// @flow
 // libs
-import makeStyles from '@material-ui/styles/makeStyles'
+import makeStyles from '@material-ui/styles/makeStyles';
 
 export const useStyles = makeStyles({
   info: {
@@ -14,4 +15,4 @@ export const useStyles = makeStyles({
   warning: {
     backgroundColor: '#ffa000',
   },
-})
+});

@@ -1,38 +1,37 @@
 // @flow
 // libs
-import * as React from 'react'
-import { ArrayHelpers, FieldArray, FormikProps } from 'formik'
-import Button from '@material-ui/core/Button'
-import Icon from '@material-ui/core/Icon'
-import IconButton from '@material-ui/core/IconButton'
-import Paper from '@material-ui/core/Paper'
-import Table from '@material-ui/core/Table'
-import MuiTableBody from '@material-ui/core/TableBody'
-import TableCell from '@material-ui/core/TableCell'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
+import * as React from 'react';
+import {ArrayHelpers, FieldArray, FormikProps} from 'formik';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Table from '@material-ui/core/Table';
+import MuiTableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 // src
-import { EditableText } from '../../EditableText'
-import { InvoiceItem, Values } from '../../../types'
-import { makeUID } from '../../../utils'
-import { round } from '../Sums/utils'
-import { useStyles } from './ItemsTable.styles'
+import {EditableText} from '../../EditableText';
+import {InvoiceItem, Values} from '../../../types';
+import {makeUID} from '../../../utils';
+import {round} from '../Sums/utils';
+import {useStyles} from './ItemsTable.styles';
 
 const getDefaultItem: InvoiceItem = id => ({
   id,
   description: 'Enter description here...',
   quantity: 0,
   unitPrice: 0,
-})
+});
 
 type FieldArrayProps = ArrayHelpers & {
   form: FormikProps<Values>,
   name: string,
-}
+};
 
 function TableBody() {
-  const styles = useStyles({})
+  const styles = useStyles({});
 
   return (
     <MuiTableBody>
@@ -42,15 +41,15 @@ function TableBody() {
           const {
             form: {
               values: {
-                invoice: { items = [] },
+                invoice: {items = []},
                 isEditable,
               },
             },
             remove,
-          } = fieldArrayProps
+          } = fieldArrayProps;
 
-          return items.map(({ id, quantity, unitPrice }, index) => {
-            const itemString = `invoice.items[${index}]`
+          return items.map(({id, quantity, unitPrice}, index) => {
+            const itemString = `invoice.items[${index}]`;
 
             return (
               <TableRow key={id || index}>
@@ -82,16 +81,16 @@ function TableBody() {
                   )}
                 </TableCell>
               </TableRow>
-            )
-          })
+            );
+          });
         }}
       />
     </MuiTableBody>
-  )
+  );
 }
 
 export function ItemsTable() {
-  const styles = useStyles({})
+  const styles = useStyles({});
 
   return (
     <section className={styles.root}>
@@ -114,7 +113,7 @@ export function ItemsTable() {
         render={({
           push,
           form: {
-            values: { isEditable },
+            values: {isEditable},
           },
         }: FieldArrayProps) =>
           isEditable ? (
@@ -129,5 +128,5 @@ export function ItemsTable() {
         }
       />
     </section>
-  )
+  );
 }

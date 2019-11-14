@@ -1,13 +1,14 @@
+// @flow
 // libs
-import { useContext } from 'react'
+import {useContext} from 'react';
 
 // src
-import { SnackbarContext } from './SnackbarProvider'
+import {SnackbarContext} from './SnackbarProvider';
 
 type UseSnackbar = {
   showSnackbar: (text: String, type: string) => void,
-}
+};
 
 export function useSnackbar(): UseSnackbar {
-  return useContext(SnackbarContext)
+  return useContext(SnackbarContext);
 }

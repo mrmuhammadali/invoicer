@@ -1,8 +1,9 @@
+// @flow
 // libs
-import makeStyles from '@material-ui/styles/makeStyles'
+import makeStyles from '@material-ui/styles/makeStyles';
 
 export const useStyles = makeStyles({
-  root: { backgroundColor: '#415472' },
+  root: {backgroundColor: '#415472'},
 
   title: {
     margin: 0,
@@ -14,4 +15,4 @@ export const useStyles = makeStyles({
   button: {
     margin: '0 5px',
   },
-})
+});

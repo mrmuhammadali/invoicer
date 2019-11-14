@@ -1,3 +1,4 @@
-export { SnackbarProvider } from './SnackbarProvider'
-export { withSnackbar } from './withSnackbar'
-export { useSnackbar } from './useSnackbar'
+// @flow
+export {SnackbarProvider} from './SnackbarProvider';
+export {withSnackbar} from './withSnackbar';
+export {useSnackbar} from './useSnackbar';

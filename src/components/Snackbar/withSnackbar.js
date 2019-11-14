@@ -1,18 +1,20 @@
+/* eslint-disable react/display-name */
+// @flow
 // libs
-import React, { useState } from 'react'
+import React, {useState} from 'react';
 
 // src
-import { Snackbar } from './Snackbar'
+import {Snackbar} from './Snackbar';
 
 export const withSnackbar = WrappedComponent => props => {
-  const [open, setOpen] = useState(false)
-  const [message, setMessage] = useState('')
-  const [variant, setVariant] = useState('error')
+  const [open, setOpen] = useState(false);
+  const [message, setMessage] = useState('');
+  const [variant, setVariant] = useState('error');
 
   function showSnackbar(text: string, type: string): void {
-    setMessage(text)
-    setVariant(type)
-    setOpen(true)
+    setMessage(text);
+    setVariant(type);
+    setOpen(true);
   }
 
   return (
@@ -25,5 +27,5 @@ export const withSnackbar = WrappedComponent => props => {
         setOpen={setOpen}
       />
     </React.Fragment>
-  )
-}
+  );
+};

@@ -1,29 +1,30 @@
+// @flow
 // libs
-import * as React from 'react'
-import { RouteComponentProps, withRouter } from 'react-router'
-import AppBar from '@material-ui/core/AppBar'
-import Icon from '@material-ui/core/Icon'
-import IconButton from '@material-ui/core/IconButton'
-import MuiToolbar from '@material-ui/core/Toolbar'
-import Tooltip from '@material-ui/core/Tooltip'
+import * as React from 'react';
+import {RouteComponentProps, withRouter} from 'react-router';
+import AppBar from '@material-ui/core/AppBar';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import MuiToolbar from '@material-ui/core/Toolbar';
+import Tooltip from '@material-ui/core/Tooltip';
 
 // src
-import { useStyles } from './Toolbar.styles'
+import {useStyles} from './Toolbar.styles';
 
 type Props = RouteComponentProps & {
   onClick: (action: string) => void,
-}
+};
 
 type ToolbarButtonProps = {
   icon: string,
   tooltip: string,
   onClick: Function,
-}
+};
 
-const ToolbarButton = ({ icon, onClick, tooltip }: ToolbarButtonProps) => {
-  const styles = useStyles({})
+const ToolbarButton = ({icon, onClick, tooltip}: ToolbarButtonProps) => {
+  const styles = useStyles({});
   return (
-    <Tooltip title={tooltip || iconType} placement="bottom">
+    <Tooltip title={tooltip} placement="bottom">
       <IconButton
         className={styles.button}
         color="inherit"
@@ -33,15 +34,12 @@ const ToolbarButton = ({ icon, onClick, tooltip }: ToolbarButtonProps) => {
         <Icon fontSize="inherit">{icon}</Icon>
       </IconButton>
     </Tooltip>
-  )
-}
+  );
+};
 
 export function ToolbarWithRouter(props: Props) {
-  const styles = useStyles({})
-  const {
-    match: { path },
-    onClick,
-  } = props
+  const styles = useStyles({});
+  const {onClick} = props;
 
   return (
     <AppBar className={[styles.root, 'dontPrint'].join(' ')} position="sticky">
@@ -64,7 +62,7 @@ export function ToolbarWithRouter(props: Props) {
         />
       </MuiToolbar>
     </AppBar>
-  )
+  );
 }
 
-export const Toolbar = withRouter(ToolbarWithRouter)
+export const Toolbar = withRouter(ToolbarWithRouter);

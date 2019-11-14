@@ -1,23 +1,23 @@
 // @flow
 // libs
-import React, { useState, useEffect } from 'react';
-import { FastField, FieldProps, useField, useFormikContext } from 'formik';
+import React, {useState} from 'react';
+import {FieldProps, useField, useFormikContext} from 'formik';
 
 // src
-import { useStyles } from './EditableText.styles';
+import {useStyles} from './EditableText.styles';
 
 type Props = FieldProps & {
   className?: string,
-  type?: string
+  type?: string,
 };
 
 export function EditableText(props: Props) {
   const styles = useStyles(props);
-  const { className, type = 'text', name, placeholder = '' } = props;
-  const { values: { isEditable = false, invoice: { items } } = {} } = useFormikContext();
+  const {className, type = 'text', name} = props;
+  const {values: {isEditable = false} = {}} = useFormikContext();
   const [field] = useField(name);
   const value = !field.value && type === 'number' ? 0 : field.value;
-  const [text, setText] = useState(value);
+  const [text] = useState(value);
   const onInput = e => {
     field.onChange(name)(e.currentTarget.innerText);
   };
@@ -27,10 +27,10 @@ export function EditableText(props: Props) {
       className={[
         styles.input,
         className,
-        field.name.includes('description') && styles.description
+        field.name.includes('description') && styles.description,
       ].join(' ')}
       contentEditable={isEditable}
-      dangerouslySetInnerHTML={{ __html: text }}
+      dangerouslySetInnerHTML={{__html: text}}
       onInput={onInput}
     />
   );

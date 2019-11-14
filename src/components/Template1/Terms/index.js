@@ -1,3 +1,4 @@
-import { Terms } from './Terms'
+// @flow
+import {Terms} from './Terms';
 
-export { Terms }
+export {Terms};

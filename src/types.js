@@ -5,7 +5,7 @@ export type InvoiceItem = {
   description: string,
   quantity: number,
   unitPrice: number,
-}
+};
 
 export type Invoice = {
   invoiceId: string,
@@ -17,7 +17,7 @@ export type Invoice = {
   amountPaid: number,
   terms: string,
   items: InvoiceItem[],
-}
+};
 
 export type Person = {
   name: string,
@@ -25,7 +25,7 @@ export type Person = {
   address: string,
   phone: string,
   email: string,
-}
+};
 
 export type Values = {
   client: Person,
@@ -33,4 +33,4 @@ export type Values = {
   invoice: Invoice,
   isEditable?: boolean,
   action?: string,
-}
+};

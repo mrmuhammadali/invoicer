@@ -1,27 +1,27 @@
 // @flow
 // libs
-import * as React from 'react'
-import { Helmet } from 'fusion-plugin-react-helmet-async'
-import { Route, Switch } from 'fusion-plugin-react-router'
-import { split } from 'fusion-react'
+import * as React from 'react';
+import {Helmet} from 'fusion-plugin-react-helmet-async';
+import {Route, Switch} from 'fusion-plugin-react-router';
+import {split} from 'fusion-react';
 
 // src
-import { PageNotFound } from './containers/PageNotFound'
-import { SnackbarProvider } from './components/Snackbar'
+import {PageNotFound} from './containers/PageNotFound';
+import {SnackbarProvider} from './components/Snackbar';
 
 const CreateInvoice = split({
   defer: true,
   load: () => import('./containers/CreateInvoice'),
   LoadingComponent: () => 'Loading...',
   ErrorComponent: () => 'Error!',
-})
+});
 
 const ViewInvoice = split({
   defer: true,
   load: () => import('./containers/ViewInvoice'),
   LoadingComponent: () => 'Loading...',
   ErrorComponent: () => 'Error!',
-})
+});
 
 export const App = (
   <React.Fragment>
@@ -40,4 +40,4 @@ export const App = (
       </Switch>
     </SnackbarProvider>
   </React.Fragment>
-)
+);

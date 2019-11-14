@@ -1,10 +1,9 @@
 // @flow
 // libs
-import { Document, model, Schema } from 'mongoose'
+import {Document, model, Schema} from 'mongoose';
 
 // src
-import { invoiceSchema } from './Invoice'
-import { Person } from '../types'
+import {Person} from '../types';
 
 const personSchema = new Schema<Schema & Person>(
   {
@@ -14,7 +13,7 @@ const personSchema = new Schema<Schema & Person>(
     phone: String,
     email: String,
   },
-  { versionKey: false },
-)
+  {versionKey: false}
+);
 
-export const PersonModel = model<Document & Person>('Person', personSchema)
+export const PersonModel = model<Document & Person>('Person', personSchema);

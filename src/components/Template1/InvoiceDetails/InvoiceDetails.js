@@ -1,19 +1,20 @@
+// @flow
 // libs
-import * as React from 'react'
-import { Field } from 'formik'
+import * as React from 'react';
+import {Field} from 'formik';
 
 // src
-import { EditableText } from '../../EditableText'
-import { useStyles } from './InvoiceDetails.styles'
+import {EditableText} from '../../EditableText';
+import {useStyles} from './InvoiceDetails.styles';
 
 export function InvoiceDetails() {
-  const styles = useStyles({})
+  const styles = useStyles({});
 
   return (
     <section className={styles.root}>
       <div className={styles.id}>
         <Field name="invoice.invoiceId">
-          {({ field }) => `# ${field.value}`}
+          {({field}) => `# ${field.value}`}
         </Field>
       </div>
 
@@ -28,5 +29,5 @@ export function InvoiceDetails() {
         <EditableText name="invoice.dueDate" type="date" />
       </div>
     </section>
-  )
+  );
 }

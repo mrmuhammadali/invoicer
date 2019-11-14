@@ -1,3 +1,4 @@
-import { Sums } from './Sums'
+// @flow
+import {Sums} from './Sums';
 
-export { Sums }
+export {Sums};

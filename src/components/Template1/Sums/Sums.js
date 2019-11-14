@@ -1,22 +1,22 @@
 // @flow
 // libs
-import * as React from 'react'
+import * as React from 'react';
 
 // src
-import { calculateSubTotal, calculateTotal, round } from './utils'
-import { EditableText } from '../../EditableText'
-import { useStyles } from './Sums.styles'
-import { Values } from '../../../types'
+import {calculateSubTotal, calculateTotal, round} from './utils';
+import {EditableText} from '../../EditableText';
+import {useStyles} from './Sums.styles';
+import {Values} from '../../../types';
 
 type Props = {
   values: Values,
-}
+};
 
-export function Sums({ values }: Props) {
-  const styles = useStyles({})
-  const { amountPaid, items, taxValue } = values.invoice
-  const subTotalAmount = round(calculateSubTotal(items))
-  const totalAmount = round(calculateTotal(subTotalAmount, taxValue))
+export function Sums({values}: Props) {
+  const styles = useStyles({});
+  const {amountPaid, items, taxValue} = values.invoice;
+  const subTotalAmount = round(calculateSubTotal(items));
+  const totalAmount = round(calculateTotal(subTotalAmount, taxValue));
 
   return (
     <section className={styles.root}>
@@ -48,5 +48,5 @@ export function Sums({ values }: Props) {
         </tbody>
       </table>
     </section>
-  )
+  );
 }

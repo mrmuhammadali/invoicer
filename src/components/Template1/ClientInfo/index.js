@@ -1,3 +1,4 @@
-import { ClientInfo } from './ClientInfo'
+// @flow
+import {ClientInfo} from './ClientInfo';
 
-export { ClientInfo }
+export {ClientInfo};

@@ -1,28 +1,28 @@
 // @flow
 // libs
-import React, { useEffect, useReducer } from 'react'
-import { Formik } from 'formik'
-import { RouteComponentProps } from 'react-router'
+import React, {useEffect, useReducer} from 'react';
+import {Formik} from 'formik';
+import {RouteComponentProps} from 'react-router';
 
 // src
-import { copyTextToClipboard, getBrowserOrigin } from '../../utils'
-import { downloadInvoice, fetchInvoiceById } from '../../actions'
-import { FormContainer } from '../FormContainer'
-import { reducer } from './reducer'
-import { useSnackbar } from '../../components/Snackbar/useSnackbar'
-import { Values } from '../../types'
+import {copyTextToClipboard, getBrowserOrigin} from '../../utils';
+import {downloadInvoice, fetchInvoiceById} from '../../actions';
+import {FormContainer} from '../FormContainer';
+import {reducer} from './reducer';
+import {useSnackbar} from '../../components/Snackbar/useSnackbar';
+import {Values} from '../../types';
 
 export function ViewInvoice(props: RouteComponentProps) {
-  const { id } = props.match.params
-  const [{ isLoading, payload }, dispatch] = useReducer(reducer, {})
-  const { showSnackbar } = useSnackbar()
+  const {id} = props.match.params;
+  const [{isLoading, payload}, dispatch] = useReducer(reducer, {});
+  const {showSnackbar} = useSnackbar();
 
   useEffect(() => {
-    fetchInvoiceById(id, dispatch)
-  }, [id])
+    fetchInvoiceById(id, dispatch);
+  }, [id]);
 
   if (isLoading) {
-    return 'Loading...'
+    return 'Loading...';
   }
 
   if (payload) {
@@ -30,26 +30,26 @@ export function ViewInvoice(props: RouteComponentProps) {
       <Formik
         initialValues={payload}
         component={FormContainer}
-        onSubmit={({ action, invoice }: Values) => {
+        onSubmit={({action, invoice}: Values) => {
           switch (action) {
             case 'download': {
-              return downloadInvoice(payload)
+              return downloadInvoice(payload);
             }
             case 'share': {
               return copyTextToClipboard(
-                `${getBrowserOrigin()}/${invoice.invoiceId}`,
+                `${getBrowserOrigin()}/${invoice.invoiceId}`
               ).then(() =>
-                showSnackbar('Shareable link copied to clipboard.', 'success'),
-              )
+                showSnackbar('Shareable link copied to clipboard.', 'success')
+              );
             }
             case 'print': {
-              return window.print()
+              return window.print();
             }
           }
         }}
       />
-    )
+    );
   }
 
-  return 'Data not available'
+  return 'Data not available';
 }

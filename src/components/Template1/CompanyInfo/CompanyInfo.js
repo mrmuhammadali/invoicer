@@ -1,12 +1,13 @@
+// @flow
 // libs
-import * as React from 'react'
+import * as React from 'react';
 
 // src
-import { EditableText } from '../../EditableText'
-import { useStyles } from './CompanyInfo.styles'
+import {EditableText} from '../../EditableText';
+import {useStyles} from './CompanyInfo.styles';
 
 export function CompanyInfo() {
-  const styles = useStyles({})
+  const styles = useStyles({});
 
   return (
     <section className={styles.root}>
@@ -43,5 +44,5 @@ export function CompanyInfo() {
         {/* <img alt="Company Logo" /> */}
       </div>
     </section>
-  )
+  );
 }

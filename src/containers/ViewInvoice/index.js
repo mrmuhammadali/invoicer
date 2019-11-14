@@ -1,1 +1,2 @@
-export { ViewInvoice, ViewInvoice as default } from './ViewInvoice'
+// @flow
+export {ViewInvoice, ViewInvoice as default} from './ViewInvoice';

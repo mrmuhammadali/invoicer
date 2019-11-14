@@ -1,3 +1,4 @@
-import { ItemsTable } from './ItemsTable'
+// @flow
+import {ItemsTable} from './ItemsTable';
 
-export { ItemsTable }
+export {ItemsTable};

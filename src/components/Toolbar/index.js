@@ -1,1 +1,2 @@
-export { Toolbar } from './Toolbar'
+// @flow
+export {Toolbar} from './Toolbar';

@@ -1,12 +1,13 @@
+// @flow
 // libs
-import * as React from 'react'
+import * as React from 'react';
 
 // src
-import { EditableText } from '../../EditableText'
-import { useStyles } from './ClientInfo.styles'
+import {EditableText} from '../../EditableText';
+import {useStyles} from './ClientInfo.styles';
 
 export function ClientInfo() {
-  const styles = useStyles({})
+  const styles = useStyles({});
 
   return (
     <section className={styles.root}>
@@ -21,5 +22,5 @@ export function ClientInfo() {
       <EditableText name="client.email" placeholder="Email" />
       <EditableText name="client.address" placeholder="Address" />
     </section>
-  )
+  );
 }

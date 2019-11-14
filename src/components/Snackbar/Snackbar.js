@@ -1,23 +1,24 @@
+// @flow
 // libs
-import React from 'react'
-import Icon from '@material-ui/core/Icon'
-import IconButton from '@material-ui/core/IconButton'
-import MuiSnackbar from '@material-ui/core/Snackbar'
-import SnackbarContent from '@material-ui/core/SnackbarContent'
+import React from 'react';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import MuiSnackbar from '@material-ui/core/Snackbar';
+import SnackbarContent from '@material-ui/core/SnackbarContent';
 
 // src
-import { useStyles } from './Snackbar.styles'
+import {useStyles} from './Snackbar.styles';
 
 type Props = {
   message: string,
   open: boolean,
   variant: 'success' | 'info' | 'error' | 'warning',
   setOpen: (open: boolean) => void,
-}
+};
 
 export const Snackbar = (props: Props) => {
-  const classes = useStyles()
-  const { message, open, variant, setOpen } = props
+  const classes = useStyles();
+  const {message, open, variant, setOpen} = props;
 
   return (
     <MuiSnackbar
@@ -44,5 +45,5 @@ export const Snackbar = (props: Props) => {
         }
       />
     </MuiSnackbar>
-  )
-}
+  );
+};

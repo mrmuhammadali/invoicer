@@ -1,5 +1,6 @@
+// @flow
 // libs
-import makeStyles from '@material-ui/styles/makeStyles'
+import makeStyles from '@material-ui/styles/makeStyles';
 
 export const useStyles = makeStyles({
   root: {
@@ -26,4 +27,4 @@ export const useStyles = makeStyles({
     fontSize: '12px',
     color: '#858585',
   },
-})
+});

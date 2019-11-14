@@ -1,3 +1,4 @@
-import { EditableText } from './EditableText'
+// @flow
+import {EditableText} from './EditableText';
 
-export { EditableText }
+export {EditableText};

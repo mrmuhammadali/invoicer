@@ -1,3 +1,4 @@
-import { InvoiceDetails } from './InvoiceDetails'
+// @flow
+import {InvoiceDetails} from './InvoiceDetails';
 
-export { InvoiceDetails }
+export {InvoiceDetails};

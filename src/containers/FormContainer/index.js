@@ -1,1 +1,2 @@
-export { FormContainer } from './FormContainer'
+// @flow
+export {FormContainer} from './FormContainer';

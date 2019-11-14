@@ -1,1 +1,2 @@
-export { PageNotFound } from './PageNotFound'
+// @flow
+export {PageNotFound} from './PageNotFound';
