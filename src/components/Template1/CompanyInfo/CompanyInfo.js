@@ -40,7 +40,7 @@ export function CompanyInfo() {
       </div>
 
       <div className={styles.companyLogo}>
-        <img alt="Company Logo" />
+        {/* <img alt="Company Logo" /> */}
       </div>
     </section>
   )

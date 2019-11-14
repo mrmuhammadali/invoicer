@@ -1,10 +1,11 @@
 // src
 import * as actionTypes from '../../actions'
+import { Values } from '../../types'
 
 type State = {
   isLoading: boolean,
   error: {},
-  payload: {},
+  payload: Values,
 }
 
 export function reducer(state: State, action) {

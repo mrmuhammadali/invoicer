@@ -15,7 +15,7 @@ export const useStyles = makeStyles({
 
   '@global @media print': {
     '.dontPrint': {
-      display: 'none',
+      display: 'none !important',
     },
   },
 

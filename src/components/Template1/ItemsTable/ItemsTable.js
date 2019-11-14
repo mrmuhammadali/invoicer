@@ -16,6 +16,7 @@ import TableRow from '@material-ui/core/TableRow'
 import { EditableText } from '../../EditableText'
 import { InvoiceItem, Values } from '../../../types'
 import { makeUID } from '../../../utils'
+import { round } from '../Sums/utils'
 import { useStyles } from './ItemsTable.styles'
 
 const getDefaultItem: InvoiceItem = id => ({
@@ -66,7 +67,9 @@ function TableBody() {
                     type="number"
                   />
                 </TableCell>
-                <TableCell align="center">{quantity * unitPrice}</TableCell>
+                <TableCell align="right">
+                  {round(quantity * unitPrice)}
+                </TableCell>
                 <TableCell className="dontPrint" align="center">
                   {isEditable && (
                     <IconButton
@@ -92,21 +95,19 @@ export function ItemsTable() {
 
   return (
     <section className={styles.root}>
-      <Paper>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell align="center">#</TableCell>
-              <TableCell>Description</TableCell>
-              <TableCell align="right">Quantity</TableCell>
-              <TableCell align="right">Unit Price</TableCell>
-              <TableCell align="center">Total</TableCell>
-              <TableCell></TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody />
-        </Table>
-      </Paper>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell align="center">#</TableCell>
+            <TableCell>Description</TableCell>
+            <TableCell align="right">Quantity</TableCell>
+            <TableCell align="right">Unit Price</TableCell>
+            <TableCell align="right">Total</TableCell>
+            <TableCell></TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody />
+      </Table>
 
       <FieldArray
         name="invoice.items"
@@ -122,7 +123,7 @@ export function ItemsTable() {
               className="dontPrint"
               onClick={() => push(getDefaultItem(makeUID()))}
             >
-              Add a row
+              Add Item
             </Button>
           ) : null
         }
