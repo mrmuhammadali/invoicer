@@ -1,6 +1,6 @@
 /* eslint-env node */
 module.exports = {
-  extends: [require.resolve('eslint-config-fusion')],
+  extends: [require.resolve("eslint-config-fusion")],
   globals: {
     Blob: true,
     document: true,
@@ -8,6 +8,12 @@ module.exports = {
     fetch: true,
     navigator: true,
     process: true,
-    window: true,
+    window: true
   },
-}
+  env: {
+    browser: true,
+    node: true,
+    es6: true,
+    jest: true
+  }
+};

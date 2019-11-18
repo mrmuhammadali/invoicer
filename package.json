@@ -9,7 +9,13 @@
     "build": "fusion build",
     "build-production": "fusion build --production",
     "start": "fusion start --port=$PORT",
-    "heroku-postbuild": "fusion build --production && sed -i \"s;$(pwd);/app;g\" .fusion/dist/production/server/server-main.js"
+    "heroku-postbuild": "fusion build --production && sed -i \"s;$(pwd);/app;g\" .fusion/dist/production/server/server-main.js",
+    "precommit": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run precommit || npm run precommit"
+    }
   },
   "dependencies": {
     "@material-ui/core": "^4.6.1",
@@ -42,6 +48,8 @@
     "eslint-plugin-react": "7.16.0",
     "eslint-plugin-react-hooks": "^2.2.0",
     "flow-bin": "^0.112.0",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.3",
     "prettier": "^1.19.1"
   },
   "files": [
