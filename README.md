@@ -1,11 +1,31 @@
-# Fusion.js application
+# Invoicer
 
-Welcome to your Fusion.js application. Get started by running the application with `yarn dev` in a terminal.
+An open-source app to generate / share invoices and download as PDF.
+[Visit App](https://react-invoicer.herokuapp.com/)
 
-Visit our documentation at: https://fusionjs.com
+## Features
 
-## TODOs
-1. Date / Number Field
-4. Email
-5. Image / Logo upload
-6. Change Currency / Dropdown
+1. Generate invoice
+2. Download in PDF
+3. Share invoice with clients using shareable link
+4. Print invoice
+
+## Limitations
+
+1. Once an invoice is generated then there's no way to edit it, you have to create a new one in order to update any information. (we're actively working to overcome this limitation)
+
+## Future Goals
+
+1. Email invoice
+2. Company Logo upload
+3. Change Currency through Dropdown
+4. Date / Number Fields support
+
+## Project Setup
+
+1. Install Mongo DB for your OS
+2. Run `git clone <repo_url>`
+3. Run `yarn install` or `npm install` in project directory
+4. Run `yarn dev`
+
+- If project ran successfully then it'll log all the routes configured in the app and status of mongo db connection.
