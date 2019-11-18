@@ -29,3 +29,11 @@ An open-source app to generate / share invoices and download as PDF.
 4. Run `yarn dev`
 
 - If project ran successfully then it'll log all the routes configured in the app and status of mongo db connection.
+
+## Tools and Technologies Used
+
+- [Fusion.js - Uber's universal web apps framework](https://fusionjs.com/)
+- [Mongo DB](https://www.mongodb.com/)
+- [Puppeteer - Headless Chrome](https://github.com/GoogleChrome/puppeteer)
+- [Material UI](https://material-ui.com/)
+- [Formik](https://github.com/jaredpalmer/formik)
