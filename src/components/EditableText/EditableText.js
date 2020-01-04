@@ -1,25 +1,23 @@
 // @flow
 // libs
-import React, {useState} from 'react';
-import {FieldProps, useField, useFormikContext} from 'formik';
+import React from "react";
+import { FieldProps, useField, useFormikContext } from "formik";
 
 // src
-import {useStyles} from './EditableText.styles';
+import { useStyles } from "./EditableText.styles";
 
 type Props = FieldProps & {
   className?: string,
-  type?: string,
+  type?: string
 };
 
 export function EditableText(props: Props) {
   const styles = useStyles(props);
-  const {className, type = 'text', name} = props;
-  const {values: {isEditable = false} = {}} = useFormikContext();
-  const [field] = useField(name);
-  const value = !field.value && type === 'number' ? 0 : field.value;
-  const [text] = useState(value);
+  const { className, name } = props;
+  const { values: { isEditable = false } = {} } = useFormikContext();
+  const [field, fieldMeta, fieldHelpers] = useField(name);
   const onInput = e => {
-    field.onChange(name)(e.currentTarget.innerText);
+    fieldHelpers.setValue(e.currentTarget.innerText);
   };
 
   return (
@@ -27,10 +25,12 @@ export function EditableText(props: Props) {
       className={[
         styles.input,
         className,
-        field.name.includes('description') && styles.description,
-      ].join(' ')}
+        field.name.includes("description") && styles.description
+      ]
+        .filter(Boolean)
+        .join(" ")}
       contentEditable={isEditable}
-      dangerouslySetInnerHTML={{__html: text}}
+      dangerouslySetInnerHTML={{ __html: fieldMeta.initialValue }}
       onInput={onInput}
     />
   );
