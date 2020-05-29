@@ -1,8 +1,4 @@
 // @flow
 module.exports = {
-  "**/*.+(js|jsx|css|sass|scss)": [
-    "eslint . --fix",
-    "prettier --write",
-    "git add"
-  ]
+  '**/*.+(js|jsx|css|sass|scss)': ['eslint . --fix', 'git add'],
 };
