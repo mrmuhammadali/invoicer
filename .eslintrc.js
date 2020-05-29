@@ -1,9 +1,9 @@
 /* eslint-env node */
+// @flow
 module.exports = {
   extends: [require.resolve("eslint-config-fusion")],
   globals: {
     Blob: true,
-    document: true,
     document: true,
     fetch: true,
     navigator: true,

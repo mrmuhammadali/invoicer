@@ -7,6 +7,9 @@ import HttpRouter, {
   HttpRouterToken
 } from "fusion-plugin-http-router";
 import mongoose from "mongoose";
+import MuiThemeProvider, {
+  MuiThemeProviderToken
+} from "fusion-plugin-material-ui";
 import Router from "fusion-plugin-react-router";
 
 // src
@@ -18,6 +21,7 @@ export default function() {
   const app = new App(ClientApp);
   app.register(Router);
   app.register(HelmetPlugin);
+  app.register(MuiThemeProviderToken, MuiThemeProvider);
 
   if (__NODE__) {
     mongoose

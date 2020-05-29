@@ -1,27 +1,26 @@
 // @flow
 // libs
-import * as React from 'react';
-import {RouteComponentProps, withRouter} from 'react-router';
-import AppBar from '@material-ui/core/AppBar';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import MuiToolbar from '@material-ui/core/Toolbar';
-import Tooltip from '@material-ui/core/Tooltip';
+import * as React from "react";
+import AppBar from "@material-ui/core/AppBar";
+import Icon from "@material-ui/core/Icon";
+import IconButton from "@material-ui/core/IconButton";
+import MuiToolbar from "@material-ui/core/Toolbar";
+import Tooltip from "@material-ui/core/Tooltip";
 
 // src
-import {useStyles} from './Toolbar.styles';
+import { useStyles } from "./Toolbar.styles";
 
-type Props = RouteComponentProps & {
-  onClick: (action: string) => void,
+type Props = {
+  onClick: (action: string) => void
 };
 
 type ToolbarButtonProps = {
   icon: string,
   tooltip: string,
-  onClick: Function,
+  onClick: Function
 };
 
-const ToolbarButton = ({icon, onClick, tooltip}: ToolbarButtonProps) => {
+const ToolbarButton = ({ icon, onClick, tooltip }: ToolbarButtonProps) => {
   const styles = useStyles({});
   return (
     <Tooltip title={tooltip} placement="bottom">
@@ -37,32 +36,30 @@ const ToolbarButton = ({icon, onClick, tooltip}: ToolbarButtonProps) => {
   );
 };
 
-export function ToolbarWithRouter(props: Props) {
+export function Toolbar(props: Props) {
   const styles = useStyles({});
-  const {onClick} = props;
+  const { onClick } = props;
 
   return (
-    <AppBar className={[styles.root, 'dontPrint'].join(' ')} position="sticky">
+    <AppBar className={[styles.root, "dontPrint"].join(" ")} position="sticky">
       <MuiToolbar variant="dense">
         <h1 className={styles.title}>React Invoicer</h1>
         <ToolbarButton
           icon="cloud_download"
           tooltip="Download"
-          onClick={() => onClick('download')}
+          onClick={() => onClick("download")}
         />
         <ToolbarButton
           icon="share"
           tooltip="Share"
-          onClick={() => onClick('share')}
+          onClick={() => onClick("share")}
         />
         <ToolbarButton
           icon="print"
           tooltip="Print"
-          onClick={() => onClick('print')}
+          onClick={() => onClick("print")}
         />
       </MuiToolbar>
     </AppBar>
   );
 }
-
-export const Toolbar = withRouter(ToolbarWithRouter);
