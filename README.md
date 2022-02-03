@@ -1,7 +1,6 @@
 # Invoicer
 
 An open-source app to generate / share invoices and download as PDF.
-[Visit App](https://react-invoicer.herokuapp.com/)
 
 ## Features
 
